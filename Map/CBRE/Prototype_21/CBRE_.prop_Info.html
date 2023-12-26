@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<link rel="icon" href="img/home.jpg">
+
+	<link rel="stylesheet" type="text/css" href="http://localhost:8080/ECP_designer/Tympanus/MultiLevelPushMenu/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="http://localhost:8080/ECP_designer/Tympanus/MultiLevelPushMenu/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="http://localhost:8080/ECP_designer/Tympanus/MultiLevelPushMenu/css/icons.css" />
+	<link rel="stylesheet" type="text/css" href="http://localhost:8080/ECP_designer/Tympanus/MultiLevelPushMenu/css/component.css" />
+	
+	<script src="http://localhost:8080/ECP_designer/Tympanus/MultiLevelPushMenu/js/modernizr.custom.js"></script>
+	
+	<script src="http://localhost:8080/ECP_designer/Tympanus/MultiLevelPushMenu/js/classie.js"></script>
+	<script src="http://localhost:8080/ECP_designer/Tympanus/MultiLevelPushMenu/js/mlpushmenu.js"></script>
+	
+
+		
+	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/mdb.min.css">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/style.css">
+	
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/jquery.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/popper.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/mdb.min.js"></script>
+	
+  <style>
+      html,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 500px;
+        width: 100%;
+      }
+
+      #menu {
+        padding: 0.8em;
+        max-width: 180px;
+      }
+    </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.26/"></script>
+    <script type="module" src="https://js.arcgis.com/calcite-components/1.0.7/calcite.esm.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/1.0.7/calcite.css" />
+	
+<script>
+  require([
+	"esri/geometry/SpatialReference",
+	"esri/core/reactiveUtils",
+	"esri/views/SceneView",
+	"esri/WebScene",
+	"esri/geometry/Point",
+	"esri/geometry/Polygon",
+	"esri/analysis/DirectLineMeasurementAnalysis",
+	"esri/widgets/DirectLineMeasurement3D",
+	"esri/analysis/AreaMeasurementAnalysis",
+	"esri/widgets/AreaMeasurement3D",
+	"esri/analysis/SliceAnalysis",
+	"esri/widgets/Slice",
+	"esri/analysis/LineOfSightAnalysis",
+	"esri/widgets/LineOfSight"
+  ], function (
+	SpatialReference,
+	reactiveUtils,
+	SceneView,
+	WebScene,
+	Point,
+	Polygon,
+	DirectLineMeasurementAnalysis,
+	DirectLineMeasurement3D,
+	AreaMeasurementAnalysis,
+	AreaMeasurement3D,
+	SliceAnalysis,
+	Slice,
+	LineOfSightAnalysis,
+	LineOfSight
+  ) {
+	// Load webscene and display it in a SceneView
+	const view = new SceneView({
+	  container: "viewDiv",
+	  map: new WebScene({
+		portalItem: {
+		  id: "32d12af2671f4b1ebc614bdd79e2bf13"
+		}
+	  }),
+	  qualityProfile: "high"
+	});
+
+	// Add menu in the top right corner of the view
+	view.ui.add("menu", "bottom-left");
+
+	// To modify analysis objects we will temporarily store the corresponding widget in this variable.
+	let analysisWidget = null;
+
+	view.when(async () => {
+	  // Create the analysis objects
+	  const directLineMeasurementAnalysis = createDirectLineMeasurementAnalysis();
+	  const areaMeasurementAnalysis = createAreaMeasurementAnalysis();
+	  const sliceAnalysis = createSliceAnalysis();
+	  const lineOfSightAnalysis = createLineOfSightAnalysis();
+
+	  // Wait for the view to load before adding analysis objects
+	  await reactiveUtils.whenOnce(() => !view.updating);
+
+	  // Add analysis object to the view to show them
+	  view.analyses.addMany([
+		directLineMeasurementAnalysis,
+		areaMeasurementAnalysis,
+		sliceAnalysis,
+		lineOfSightAnalysis
+	  ]);
+
+	  // Configure buttons to interact with the analysis objects
+	  const areaMeasurementAnalysisButton = setupAnalysisButton(
+		"areaMeasurementAnalysisButton",
+		() => new AreaMeasurement3D({ view, analysis: areaMeasurementAnalysis })
+	  );
+
+	  const directLineMeasurementAnalysisButton = setupAnalysisButton(
+		"directLineMeasurementAnalysisButton",
+		() => new DirectLineMeasurement3D({ view, analysis: directLineMeasurementAnalysis })
+	  );
+
+	  const lineOfSightAnalysisButton = setupAnalysisButton(
+		"lineOfSightAnalysisButton",
+		() => new LineOfSight({ view, analysis: lineOfSightAnalysis })
+	  );
+
+	  const sliceAnalysisButton = setupAnalysisButton(
+		"sliceAnalysisButton",
+		() => new Slice({ view, analysis: sliceAnalysis })
+	  );
+
+	  // Remove button is a bit special
+	  document.getElementById("removeWidgetButton").addEventListener("click", () => {
+		removeActiveWidget();
+	  });
+
+	  function setupAnalysisButton(elementId, widgetFactotry) {
+		const button = document.getElementById(elementId);
+
+		button.addEventListener("click", () => {
+		  // remove current widget (if any)
+		  removeActiveWidget();
+
+		  // install a suitable widget in the `analysisWidget` variable
+		  analysisWidget = widgetFactotry();
+
+		  // highlight this button as the currently active one and add the remove widget button
+		  button.appearance = "outline";
+		  document.getElementById("removeWidgetButton").style.display = "block";
+
+		  // show the analysisWidget in the lower right corner
+		  view.ui.add(analysisWidget, "bottom-right");
+		});
+		return button;
+	  }
+
+	  function removeActiveWidget() {
+		// remove the analysisWidget if one exists
+		if (analysisWidget) {
+		  analysisWidget.destroy();
+		  analysisWidget = null;
+		}
+
+		// hide remove button
+		document.getElementById("removeWidgetButton").style.display = "none";
+
+		// reset appearance of the analysis buttons
+		areaMeasurementAnalysisButton.appearance = "solid";
+		directLineMeasurementAnalysisButton.appearance = "solid";
+		lineOfSightAnalysisButton.appearance = "solid";
+		sliceAnalysisButton.appearance = "solid";
+	  }
+	});
+
+	function createDirectLineMeasurementAnalysis() {
+	  return new DirectLineMeasurementAnalysis({
+		startPoint: newPoint(-8238827, 4971466, 3),
+		endPoint: newPoint(-8238819, 4971537, 3)
+	  });
+	}
+
+	function createAreaMeasurementAnalysis() {
+	  const roofPolygon = new Polygon({
+		rings: [
+		  [
+			[-8238931, 4971381, 50],
+			[-8238926, 4971426, 50],
+			[-8238835, 4971415, 50],
+			[-8238841, 4971369, 50],
+			[-8238931, 4971381, 50]
+		  ]
+		],
+		spatialReference: SpatialReference.WebMercator
+	  });
+
+	  return new AreaMeasurementAnalysis({
+		geometry: roofPolygon
+	  });
+	}
+
+	function createSliceAnalysis() {
+	  return new SliceAnalysis({
+		shape: {
+		  position: newPoint(-8238840, 4971700, 21),
+		  tilt: 0,
+		  width: 70,
+		  height: 100,
+		  heading: 278
+		}
+	  });
+	}
+
+	function createLineOfSightAnalysis() {
+	  return new LineOfSightAnalysis({
+		observer: { position: newPoint(-8238825, 4971538, 48) },
+		targets: [
+		  { position: newPoint(-8238903, 4971649, 2) },
+		  { position: newPoint(-8238866, 4971629, 19) },
+		  { position: newPoint(-8238825, 4971880, 2) },
+		  { position: newPoint(-8238791, 4971784, 2) }
+		]
+	  });
+	}
+
+	function newPoint(x, y, z) {
+	  // convenience function to have all points in the same spatial reference
+	  return new Point({ x, y, z, spatialReference: SpatialReference.WebMercator });
+	}
+  });
+</script>	
+<style>
+
+#headerTr{
+  background-image:url(img/arcgis-banner.jpg);
+  background-size:100% 100%;
+  border: 1px solid 3386bc;
+}
+
+
+col-md-3{
+    padding-right: 0px !important;
+}
+
+
+.scroller{
+
+    height: 900px;
+}
+
+.codrops-header{
+	padding: 5px 5px 5px 5px;
+
+}
+</style>	
+	
+</head>
+<body>
+
+
+
+<!-- Push Wrapper -->
+<div class="mp-pusher" id="mp-pusher">
+
+	<!-- mp-menu -->
+	<nav id="mp-menu" class="mp-menu">
+		<div class="mp-level">
+			<h2 class="icon icon-world">All Categories</h2>
+			<ul>
+				<li class="icon icon-arrow-left">
+					<a class="icon icon-display" href="#" style="color: white;">Devices</a>
+					<div class="mp-level">
+						<h2 class="icon icon-display">Devices</h2>
+						<a class="mp-back" href="#">back</a>
+						<ul>
+							<li class="icon icon-arrow-left">
+								<a class="icon icon-phone" href="#">Mobile Phones</a>
+								<div class="mp-level">
+									<h2>Mobile Phones</h2>
+									<a class="mp-back" href="#">back</a>
+									<ul>
+										<li><a href="#" >Super Smart Phone</a></li>
+										<li><a href="#">Thin Magic Mobile</a></li>
+										<li><a href="#">Performance Crusher</a></li>
+										<li><a href="#">Futuristic Experience</a></li>
+									</ul>
+								</div>
+							</li>
+							<li class="icon icon-arrow-left">
+								<a class="icon icon-tv" href="#">Televisions</a>
+								<div class="mp-level">
+									<h2>Televisions</h2>
+									<a class="mp-back" href="#">back</a>
+									<ul>
+										<li><a href="#">Flat Superscreen</a></li>
+										<li><a href="#">Gigantic LED</a></li>
+										<li><a href="#">Power Eater</a></li>
+										<li><a href="#">3D Experience</a></li>
+										<li><a href="#">Classic Comfort</a></li>
+									</ul>
+								</div>
+							</li>
+							<li class="icon icon-arrow-left">
+								<a class="icon icon-camera" href="#">Cameras</a>
+								<div class="mp-level">
+									<h2>Cameras</h2>
+									<a class="mp-back" href="#">back</a>
+									<ul>
+										<li><a href="#">Smart Shot</a></li>
+										<li><a href="#">Power Shooter</a></li>
+										<li><a href="#">Easy Photo Maker</a></li>
+										<li><a href="#">Super Pixel</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="icon icon-arrow-left">
+					<a class="icon icon-news" href="#">Magazines</a>
+					<div class="mp-level">
+						<h2 class="icon icon-news">Magazines</h2>
+						<a class="mp-back" href="#">back</a>
+						<ul>
+							<li><a href="#">National Geographic</a></li>
+							<li><a href="#">Scientific American</a></li>
+							<li><a href="#">The Spectator</a></li>
+							<li><a href="#">The Rambler</a></li>
+							<li><a href="#">Physics World</a></li>
+							<li><a href="#">The New Scientist</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="icon icon-arrow-left">
+					<a class="icon icon-shop" href="#">Store</a>
+					<div class="mp-level">
+						<h2 class="icon icon-shop">Store</h2>
+						<a class="mp-back" href="#">back</a>
+						<ul>
+							<li class="icon icon-arrow-left">
+								<a class="icon icon-t-shirt" href="#">Clothes</a>
+								<div class="mp-level">
+									<h2 class="icon icon-t-shirt">Clothes</h2>
+									<a class="mp-back" href="#">back</a>
+									<ul>
+										<li class="icon icon-arrow-left">
+											<a class="icon icon-female" href="#">Women's Clothing</a>
+											<div class="mp-level">
+												<h2 class="icon icon-female">Women's Clothing</h2>
+												<a class="mp-back" href="#">back</a>
+												<ul>
+													<li><a href="#">Tops</a></li>
+													<li><a href="#">Dresses</a></li>
+													<li><a href="#">Trousers</a></li>
+													<li><a href="#">Shoes</a></li>
+													<li><a href="#">Sale</a></li>
+												</ul>
+											</div>
+										</li>
+										<li class="icon icon-arrow-left">
+											<a class="icon icon-male" href="#">Men's Clothing</a>
+											<div class="mp-level">
+												<h2 class="icon icon-male">Men's Clothing</h2>
+												<a class="mp-back" href="#">back</a>
+												<ul>
+													<li><a href="#">Shirts</a></li>
+													<li><a href="#">Trousers</a></li>
+													<li><a href="#">Shoes</a></li>
+													<li><a href="#">Sale</a></li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a class="icon icon-diamond" href="#">Jewelry</a>
+							</li>
+							<li>
+								<a class="icon icon-music" href="#">Music</a>
+							</li>
+							<li>
+								<a class="icon icon-food" href="#">Grocery</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="icon icon-photo" href="#">Collections</a></li>
+				<li><a class="icon icon-wallet" href="#">Credits</a></li>
+			</ul>
+				
+		</div>
+	</nav>
+	<!-- /mp-menu -->
+
+	<!--div class="scroller"><!-- this is for emulating position fixed of the nav -->
+		<!--div class="scroller-inner"-->
+
+			<header class="codrops-header" id="headerTr"  style="text-align: left;" >
+				<a href="#" id="trigger" class="menu-trigger" style="text-align: left;">Menu</a>
+										
+				<div style="text-align: center; color:white"><H4><B>CBRE Property Explorer and Mangement System</B></h4></div>
+				<div style="text-align: right;"><a href="#" id="btLogin"  style="text-align: right;">Login</a></div>
+			</header>
+			<!--div class="content clearfix"-->
+
+				<!--div class="float-left">Float left on all viewport sizes</div>				
+				<div class="float-right">Float right on all viewport sizes</div>				
+				<div class="float-middle">Don't float on all viewport sizes</div-->
+				
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="row">		
+			<div class="col-md-3">
+				<button type="button" class="btn btn-primary btn-sm waves-effect waves-light" onclick="expandAll();">↕ Expand All</button>
+				<button type="button" class="btn btn-primary btn-sm waves-effect waves-light" onclick="sellAll();">√ Select All</button>	
+			</div>
+			<div class="col-md-4">
+				<div class="md-form">
+					<input type="text" id="remarks" class="form-control">
+					<label for="remarks" class="">Remarks for all selected projects :</label>
+				</div>
+			</div>
+			<div class="col-md-5 ">				 
+				<button type="button" class="btn btn-outline-primary waves-effect  btn-sm" onclick="saveAll();">Save selected as draft</button>				
+
+				<button type="button" class="btn btn-outline-success waves-effect  btn-sm" onclick="submitAll();">Submit selected</button>				
+			</div>
+		</div>
+
+	</div>
+	<div class="col-md-6">
+	
+<div id="viewDiv">
+      <div id="menu" class="esri-widget">
+        <calcite-label>
+          Click one of the buttons below to open the corresponding analysis widget and interact with the analysis.
+        </calcite-label>
+
+        <calcite-button
+          id="directLineMeasurementAnalysisButton"
+          icon-start="measure-line"
+          title="Interact with direct line measurement"
+        >
+        </calcite-button>
+        <calcite-button
+          id="areaMeasurementAnalysisButton"
+          icon-start="measure-area"
+          title="Interact with area measurement"
+        >
+        </calcite-button>
+        <calcite-button id="sliceAnalysisButton" icon-start="slice" title="Interact with slice plane"> </calcite-button>
+        <calcite-button
+          id="lineOfSightAnalysisButton"
+          icon-start="line-of-sight"
+          title="Interact with line of sight analysis"
+        >
+        </calcite-button>
+        <calcite-label></calcite-label>
+        <calcite-button id="removeWidgetButton" title="Remove Widget" style="display: none; width: 140px"
+          >Remove Widget
+        </calcite-button>
+      </div>
+    </div>	
+	
+	</div>
+</div>
+
+
+			<!--/div--><!-- /content clearfix -->
+		<!--/div><!-- /scroller-inner -->
+	<!--/div><!-- /scroller -->
+
+</div><!-- /pusher -->
+
+<script>
+new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+
+/* run with chrome cors
+fetch('CBRW_PropInfo.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+}
+//#160a4c  banner back	light blue 30d8fc
+
+
+
+</script>
+</body>
+</html>

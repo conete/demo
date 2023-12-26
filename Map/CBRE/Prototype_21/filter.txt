@@ -1,0 +1,105 @@
+====== TENDER Evaluation / Evaluation_all =====
+
+canSeeTender = false;
+if (curUser.roles contains "Admin" OR "TU Member" OR "TAU Member" OR "TAU Supervisor" OR "FD_member") //see all
+	canSeeTender = true;
+	
+else if ((User.IsInRole("TEC Member") || User.IsInRole("TEC OIC") OR User.IsInRole("TEC Chairman")) && 
+		  tender.wf_tender.tec_members contains curUser &&
+		  tender.wf_tender.tec_members(curUser).coi != "Yes")
+	canSeeTender = true;
+	
+else if ((curUser.roles contains "TCB Member" OR "TCB Chairman") && 
+		  tender.wf_tender.tcb_members contains curUser &&
+		  tender.wf_tender.tcb_members(curUser).coi != "Yes")
+	canSeeTender = true;	
+	
+	
+====== PROJECT DASHBOARD =====
+canSeeProject = false;
+if (curUser.roles contains "Admin" OR "PCD Viewer") //see all
+	canSeeProject = true;
+	
+else if (curUser.roles contains "Department Admin" && 
+		curUser.soe_ad_id == getDepartment(project.dept).admin_soeid 
+	canSeeTender = true;
+	
+else if ((curUser.roles contains "project member" OR "SPE" OR "Chief Engineer") && 
+		  project.prj_members contains curUser 
+	canSeeTender = true;
+	
+
+====== SURVEY SUBMISSION  =====
+canSeeProject = false;
+if (project.surveyStatus == "New" || "Draft"))
+	if (curUser.roles contains "Admin") //see all
+		canSeeProject = true;
+	else if (curUser.roles contains "project member" &&
+			project.prj_members contains curUser)
+		canSeeProject = true;
+	
+====== SURVEY APPROVAL  =====	
+canSeeProject = false;
+if (project.surveyStatus != "New" || != "Draft") && 
+	curUser.roles contains "Admin")	//see all
+	canSeeProject = true;
+	
+if (project.surveyStatus == "With Dept Admin" && 
+	curUser.roles contains "Department Admin" && 
+	curUser.soe_ad_id == getDepartment(project.dept).admin_soeid 
+	canSeeProject = true;	
+	
+if (project.surveyStatus == "With SPE" && 
+	curUser.roles contains "SPE" && 
+	project.prj_members contains curUser 
+	canSeeProject = true;	
+
+if (project.surveyStatus == "With Ch Eng" && 
+	curUser.roles contains "Chief Engineer" && 
+	project.prj_members contains curUser 
+	canSeeProject = true;	
+
+	
+	
+
+	
+	
+	
+	
+===== OLD filter, ignore ======	
+
+C# var prjFilter = {
+	user: ""
+	surveyStatus: ""
+	department: "",
+
+	
+samples: 
+SurveySubmission (if user has role project_member)
+	user = "current user SOEID" //filter: project.prj_members contain current user ID
+	surveyStatus: "NewOrDraft"	//filter: project.surveyStatus = "New" || project.surveyStatus = "Draft"
+	department: "",
+
+SurveyApproval (if user has role Department_admin)
+	user = "" 					//no filter
+	surveyStatus: "Dept Admin"	//filter: project.surveyStatus = "With Dept Admin" 
+	department: "WSN,WRN",		//"WSN" = department.short_name where department.admin_soeid = current user.sow_ad_id
+								//filter: project.department = "WSN" ||  project.department = "WRN"
+
+SurveyApproval (if user has role SPE)
+	user = "current user SOEID" //filter: project.prj_members contain current user ID
+	surveyStatus: "With SPE"	//filter: project.surveyStatus = "With SPE" 
+	department: "",				//no filter								
+
+SurveyApproval (if user has role Ch Engineer)
+	user = "current user SOEID" //filter: project.prj_members contain current user ID
+	surveyStatus: "With Ch Eng"	//filter: project.surveyStatus = "With Ch Engineer" 
+	department: "",				//no filter
+	
+SurveyApproval (if user has role PCD_Viewer)
+	user = "" 					//no filter
+	surveyStatus: "Completed"	//filter: project.surveyStatus = "Completed" 
+	department: "",				//no filter
+*/
+	
+	

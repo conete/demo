@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<link rel="icon" href="PM2.png">
+	
+<style> <!-- print pagination -->
+
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #FAFAFA;
+        font: 12pt "Tahoma";
+    }
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 10mm auto;
+        border: 1px #D3D3D3 solid;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .subpage {
+        padding: 1cm;
+        border: 5px red solid;
+        height: 257mm;
+        outline: 2cm #FFEAEA solid;
+    }
+    
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    @media print {
+        html, body {
+            width: 210mm;
+            height: 297mm;        
+        }
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+</style>
+
+
+<style>
+  #viewDiv {
+	padding: 0;
+	margin: 0;
+	height: 500px;
+	width: 100%;
+  }
+  
+  .esri-legend__service:  
+    padding-left: 5px;
+    border-bottom-width: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+
+  }
+  
+  
+  .esri-component.esri-widget--panel{
+  
+  }
+  .esri-widget--panel{
+    width: 170px !important;
+
+  }
+</style>
+<link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
+<script src="https://js.arcgis.com/4.26/"></script>
+<script>
+//https://developers.arcgis.com/javascript/latest/sample-code/visualization-point-styles/
+//https://developers.arcgis.com/javascript/latest/sample-code/sketch-geometries/
+
+var view, sketch;      
+
+require(["esri/WebScene", "esri/views/SceneView", "esri/layers/FeatureLayer", "esri/widgets/Legend", 
+	"esri/widgets/Sketch", "esri/Map", "esri/layers/GraphicsLayer", "esri/views/MapView"], (
+	WebScene,SceneView,FeatureLayer,Legend, Sketch,Map,GraphicsLayer,MapView
+) => {
+	/*****************************************************************
+	 * Create a function that generates symbols for extruded polygons.
+	 *****************************************************************/
+
+	function getSymbol(color) {
+	  return {
+		type: "polygon-3d", // autocasts as new PolygonSymbol3D()
+		symbolLayers: [
+		  {
+			type: "extrude", // autocasts as new ExtrudeSymbol3DLayer()
+			material: {
+			  color: color
+			},
+			edges: {
+			  type: "solid",
+			  color: "#999",
+			  size: 0.5
+			}
+		  }
+		]
+	  };
+	}
+
+	/*****************************************************************
+	 * Set each unique value directly in the renderer's constructor.
+	 * At least one field must be used (in this case the "DESCLU" field).
+	 * The label property of each unique value will be used to indicate
+	 * the field value and symbol in the legend.
+	 *
+	 * The size visual variable sets the height of each building as it
+	 * exists in the real world according to the "ELEVATION" field.
+	 *****************************************************************/
+
+	const renderer = {
+	  type: "unique-value", // autocasts as new UniqueValueRenderer()
+	  defaultSymbol: getSymbol("#FFFFFF"),
+	  defaultLabel: "Other",
+	  field: "TYPE",
+	  uniqueValueInfos: [
+		{
+		  value: "Residential",
+		  symbol: getSymbol("#A7C636"),
+		  label: "Amenities"
+		},
+		{
+		  value: "Commercial",
+		  symbol: getSymbol("#FC921F"),
+		  label: "Commercial"
+		},
+		{
+		  value: "Hotel/Motel",
+		  symbol: getSymbol("#ED5151"),
+		  label: "Hotel/Motel"
+		},
+		{
+		  value: "Apartment Rentals",
+		  symbol: getSymbol("#149ECE"),
+		  label: "Apartments"
+		}
+	  ],
+	  visualVariables: [
+		{
+		  type: "size",
+		  field: "HEIGHT"
+		}
+	  ]
+	};
+
+	// Set the renderer on the layer
+	const buildingsLayer = new FeatureLayer({
+	  url:
+		"https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/building_footprints_height/FeatureServer",
+	  renderer: renderer,
+	  elevationInfo: {
+		mode: "on-the-ground"
+	  },
+	  title: "building report",
+	  popupTemplate: {
+		// autocasts as new PopupTemplate()
+		title: "{TYPE}",
+		content: [
+		  {
+			type: "fields",
+			fieldInfos: [
+			  {
+				fieldName: "TYPE",
+				label: "Type"
+			  },
+			  {
+				fieldName: "HEIGHT",
+				label: "Height"
+			  }
+			]
+		  }
+		]
+	  },
+	  outFields: ["TYPE", "HEIGHT"]
+	});
+
+	const map = new WebScene({
+	  portalItem: {
+		id: "397c462348464d069a7a63b97644086e"
+	  }
+	});
+
+	map.add(buildingsLayer);
+	const graphicsLayer = new GraphicsLayer()
+	map.add(graphicsLayer);
+
+
+	view = new SceneView({
+	  container: "viewDiv",
+	  map: map,
+	  camera: {
+		position: [-75.09519011, 38.32524201, 682.98652],
+		heading: 53.86,
+		tilt: 48.52
+	  }
+	});
+	 view.when(() => {
+        sketch = new Sketch({
+          layer: graphicsLayer,
+          view: view,
+          // graphic will be selected as soon as it is created
+          creationMode: "update"
+        });
+
+        
+	})
+	const legend = new Legend({
+	  view: view
+	});
+
+	view.ui.add(legend, "bottom-right");
+  });
+</script>
+</head>
+
+
+
+
+<body>
+
+
+
+<div class="book">
+    <div class="page">
+		<div class="subpage">
+			<button onclick="window.print();">Print page</button>
+			<button onclick="view.ui.add(sketch, 'top-right');">Draw</button>
+			
+			<div id="viewDiv"></div>
+			<img src="img/rep1.png" width="100%"/>
+		
+		
+		</div>    
+    </div>
+    <div class="page">
+        <div class="subpage">
+			<img src="img/rep1.png" width="100%"/>
+			<img src="img/rep2.png" width="100%"/>
+		</div>    
+    </div>
+</div>
+
+
+
+</body>
+
+</html>

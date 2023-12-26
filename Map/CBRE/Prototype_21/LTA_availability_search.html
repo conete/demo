@@ -1,0 +1,1471 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<link rel="icon" href="img/home.jpg">
+	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/mdb.min.css">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/style.css">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/addons/datatables.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/addons/datatables-select.min.css" rel="stylesheet">
+	
+
+	
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/jquery.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/popper.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/mdb.min.js"></script>
+		
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/addons/datatables.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/addons/datatables-select.min.js"></script>
+	
+<style> <!-- app specific-->
+/* Only for snippet */
+.double-nav .breadcrumb-dn {
+	color: #fff;
+}
+
+.nav_cust{
+  background-image:url(img/arcgis-banner_bl.jpg) ;
+  background-size:100% 100%;
+  text-align: center !important; 
+  height: 90px !important;
+}
+
+.sn-bg-5 {
+    background-image: url("img/esri_bck.jpg")
+}
+
+
+.spacer_5{
+	padding-bottom: 5px;
+}
+
+.spacer_10{
+	padding-bottom: 10px;
+}
+
+.td_slim{
+ padding-bottom: 0px !important; 
+ padding-top: 5px !important;
+}
+
+.dd3-handle{
+    background: -webkit-linear-gradient(top, #007bff 0%, #33b5e5 100%) !important;
+}
+
+.nestOpAnd{
+	color:lime  !important;
+	font-weight: bold !important;
+}
+
+.nestOpOr{
+	color:DodgerBlue !important;
+	font-weight: bold !important;
+}
+
+</style>
+<style><!-- mdb -->
+
+
+.dtHorizontalVerticalExampleWrapper {
+	max-width: 600px;
+	margin: 0 auto;
+}
+#dtHorizontalVerticalExample th, td {
+	white-space: nowrap;
+}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+	bottom: .5em;
+}
+
+</style>
+
+
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
+<script src="https://www.jqueryscript.net/demo/Mobile-Compatible-jQuery-Drag-Drop-Plugin-Nestable/jquery.nestable.js"></script>
+<style type="text/css"> <!-- nestable-->
+
+.cf:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .cf { zoom: 1; }
+*:first-child+html .cf { zoom: 1; }
+
+html { margin: 0; padding: 0; }
+body { font-size: 100%; margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+h1 { font-size: 1.75em; margin: 0 0 0.6em 0; }
+
+a { color: #2996cc; }
+a:hover { text-decoration: none; }
+
+p { line-height: 1.5em; }
+.small { color: #666; font-size: 0.875em; }
+.large { font-size: 1.25em; }
+
+/**
+ * Nestable
+ */
+
+.dd { position: relative; display: block; margin: 0; padding: 0; max-width: 600px; list-style: none; font-size: 13px; line-height: 20px; }
+
+.dd-list { display: block; position: relative; margin: 0; padding: 0; list-style: none; }
+.dd-list .dd-list { padding-left: 30px; }
+.dd-collapsed .dd-list { display: none; }
+
+.dd-item,
+.dd-empty,
+.dd-placeholder { display: block; position: relative; margin: 0; padding: 0; min-height: 20px; font-size: 13px; line-height: 20px; }
+
+.dd-handle { display: block; height: 30px; margin: 5px 0; padding: 5px 10px; color: #333; text-decoration: none; font-weight: bold; border: 1px solid #ccc;
+    background: #fafafa;
+    background: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:    -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:         linear-gradient(top, #fafafa 0%, #eee 100%);
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    box-sizing: border-box; -moz-box-sizing: border-box;
+}
+.dd-handle:hover { color: #2ea8e5; background: #fff; }
+
+.dd-item > button { display: block; position: relative; cursor: pointer; float: left; width: 25px; height: 20px; margin: 5px 0; padding: 0; text-indent: 100%; white-space: nowrap; overflow: hidden; border: 0; background: transparent; font-size: 12px; line-height: 1; text-align: center; font-weight: bold; }
+.dd-item > button:before { content: '+'; display: block; position: absolute; width: 100%; text-align: center; text-indent: 0; }
+.dd-item > button[data-action="collapse"]:before { content: '-'; }
+
+.dd-placeholder,
+.dd-empty { margin: 5px 0; padding: 0; min-height: 30px; background: #f2fbff; border: 1px dashed #b6bcbf; box-sizing: border-box; -moz-box-sizing: border-box; }
+.dd-empty { border: 1px dashed #bbb; min-height: 100px; background-color: #e5e5e5;
+    background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                      -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                         -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:         linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                              linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+
+.dd-dragel { position: absolute; pointer-events: none; z-index: 9999; }
+.dd-dragel > .dd-item .dd-handle { margin-top: 0; }
+.dd-dragel .dd-handle {
+    -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+            box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+}
+
+/**
+ * Nestable Extras
+ */
+
+.nestable-lists { display: block; clear: both; padding: 30px 0; width: 100%; border: 0; border-top: 2px solid #ddd; border-bottom: 2px solid #ddd; }
+
+#nestable-menu { padding: 0; margin: 20px 0; }
+
+#nestable-output,
+#nestable2-output { width: 100%; height: 7em; font-size: 0.75em; line-height: 1.333333em; font-family: Consolas, monospace; padding: 5px; box-sizing: border-box; -moz-box-sizing: border-box; }
+
+#nestable2 .dd-handle {
+    color: #fff;
+    border: 1px solid #999;
+    background: #bbb;
+    background: -webkit-linear-gradient(top, #bbb 0%, #999 100%);
+    background:    -moz-linear-gradient(top, #bbb 0%, #999 100%);
+    background:         linear-gradient(top, #bbb 0%, #999 100%);
+}
+#nestable2 .dd-handle:hover { background: #bbb; }
+#nestable2 .dd-item > button:before { color: #fff; }
+
+@media only screen and (min-width: 700px) {
+
+    .dd { float: left; width: 48%; }
+    .dd + .dd { margin-left: 2%; }
+
+}
+
+.dd-hover > .dd-handle { background: #2ea8e5 !important; }
+
+/**
+ * Nestable Draggable Handles
+ */
+
+.dd3-content { display: block; height: 30px; margin: 5px 0; padding: 5px 10px 5px 40px; color: #333; text-decoration: none; font-weight: bold; border: 1px solid #ccc;
+    background: #fafafa;
+    background: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:    -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:         linear-gradient(top, #fafafa 0%, #eee 100%);
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    box-sizing: border-box; -moz-box-sizing: border-box;
+}
+.dd3-content:hover { color: #2ea8e5; background: #fff; }
+
+.dd-dragel > .dd3-item > .dd3-content { margin: 0; }
+
+.dd3-item > button { margin-left: 30px; }
+
+.dd3-handle { position: absolute; margin: 0; left: 0; top: 0; cursor: pointer; width: 30px; text-indent: 100%; white-space: nowrap; overflow: hidden;
+    border: 1px solid #aaa;
+    background: #ddd;
+    background: -webkit-linear-gradient(top, #ddd 0%, #bbb 100%);
+    background:    -moz-linear-gradient(top, #ddd 0%, #bbb 100%);
+    background:         linear-gradient(top, #ddd 0%, #bbb 100%);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.dd3-handle:before { content: '≡'; display: block; position: absolute; left: 0; top: 3px; width: 100%; text-align: center; text-indent: 0; color: #fff; font-size: 20px; font-weight: normal; }
+.dd3-handle:hover { background: #ddd; }
+
+</style>
+
+
+<link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
+<script src="https://js.arcgis.com/4.26/"></script>
+<script type="module" src="https://js.arcgis.com/calcite-components/1.0.7/calcite.esm.js"></script>
+<link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/1.0.7/calcite.css" />
+<style>
+  #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      .editor-config {
+        width: 138px;
+        display: inline-block;
+      }
+
+      .esri-editor .esri-item-list__scroller {
+        max-height: 350px;
+      }
+
+      #setting {
+        padding: 10px;
+      }
+</style>
+<script> <!-- ags init -->
+
+
+var myLayers = [50];
+var  view;
+
+//import Query from "@arcgis/core/rest/support/Query.js";
+
+var fctZoomRow;
+
+//init();
+//function init(){
+
+//dojo.require("esri.tasks.query");
+//https://developers.arcgis.com/javascript/latest/sample-code/widgets-editor-3d-scenelayer/
+
+require(["esri/widgets/Editor", "esri/views/SceneView", "esri/WebScene", 	"esri/layers/FeatureLayer",	"esri/rest/support/Query"], 
+	(Editor, SceneView, WebScene, FeatureLayer, Query) => {
+	const webscene = new WebScene({
+	  portalItem: {
+		id: "a3bd04ebe7fe49fbae145ae6b9c66da7"
+	  }
+	});
+
+	view = new SceneView({
+	  container: "viewDiv",
+	  qualityProfile: "high",
+	  map: webscene
+	});
+	
+	myLayers[0] = new FeatureLayer({url: "https://services2.arcgis.com/GrCObcYo81O3Ymu8/ArcGIS/rest/services/Buildings_data_gov_sg_WFL1/FeatureServer/0"});
+	view.map.add(myLayers[0]);
+
+	// Set the colors for the status values
+	const visualVariablesStatus = [
+	  {
+		type: "color",
+		field: "Status",
+		stops: [
+		  {
+			value: 0, // unknown
+			color: [191, 189, 189, 1]
+		  },
+		  {
+			value: 1, // free
+			color: [0, 204, 0, 1]
+		  },
+		  {
+			value: 2, // reserved
+			color: [255, 128, 0, 1]
+		  },
+		  {
+			value: 3, // occupied
+			color: [204, 0, 0, 1]
+		  }
+		]
+	  }
+	];
+
+	// Set the colors for the floortype values
+	const visualVariablesFloorType = [
+	  {
+		type: "color",
+		field: "FloorType",
+		stops: [
+		  {
+			value: 0, // Unknown
+			color: [191, 189, 189, 1]
+		  },
+		  {
+			value: 1, // Apartments
+			color: [0, 182, 241, 1]
+		  },
+		  {
+			value: 2, // Industrial
+			color: [217, 191, 13, 1]
+		  },
+		  {
+			value: 3, // Restaurants
+			color: [106, 40, 199, 1]
+		  },
+		  {
+			value: 4, // Retail
+			color: [171, 87, 157, 1]
+		  },
+		  {
+			value: 5, // Hotel
+			color: [120, 174, 160, 1]
+		  }
+		]
+	  }
+	];
+
+	// Create the renderer and configure visual variables
+	const renderer = {
+	  type: "simple", // autocasts as new SimpleRenderer()
+	  symbol: {
+		type: "mesh-3d", // autocasts as new MeshSymbol3D()
+		symbolLayers: [
+		  {
+			type: "fill", // autocasts as new FillSymbol3DLayer()
+			material: {
+			  color: "#ffffff",
+			  colorMixMode: "replace"
+			},
+			edges: {
+			  type: "solid",
+			  color: [0, 0, 0, 0.6],
+			  size: 1
+			}
+		  }
+		]
+	  },
+	  visualVariables: visualVariablesStatus
+	};
+
+	// Create the Editor
+	const editor = new Editor({
+	  view: view
+	});
+	// Add widget to top-right of the view
+	view.ui.add(editor, "top-right");
+
+	view.when(() => {
+          // Search in the WebScene for the scenelayer for attribute editing
+          const sceneLayer = webscene.layers.find((layer) => {
+            return layer.title === "BuildingsEditAttribute";
+          });
+          sceneLayer.renderer = renderer;
+
+          // Setup the actions for the buttons
+          const renderFloorTypeBtn = document.getElementById("renderFloorType");
+          const renderStatusBtn = document.getElementById("renderStatus");
+          renderFloorTypeBtn.addEventListener("click", () => {
+            toggleRenderer("FloorType");
+          });
+          renderStatusBtn.addEventListener("click", () => {
+            toggleRenderer("Status");
+          });
+
+          function toggleRenderer(type) {
+            if (type === "Status") {
+              renderFloorTypeBtn.classList.add("esri-button--secondary");
+              renderStatusBtn.classList.remove("esri-button--secondary");
+              const renderer = sceneLayer.renderer.clone();
+              renderer.visualVariables = visualVariablesStatus;
+              sceneLayer.renderer = renderer;
+            }
+            if (type === "FloorType") {
+              renderFloorTypeBtn.classList.remove("esri-button--secondary");
+              renderStatusBtn.classList.add("esri-button--secondary");
+              const renderer = sceneLayer.renderer.clone();
+              renderer.visualVariables = visualVariablesFloorType;
+              sceneLayer.renderer = renderer;
+            }
+          }
+
+          // Add the setting to the bottom-right of the view
+          view.ui.add("setting", "bottom-right");
+        });
+
+	/*
+  require([
+	"esri/geometry/SpatialReference",
+	"esri/core/reactiveUtils",
+	"esri/views/SceneView",
+	"esri/WebScene",
+	"esri/layers/FeatureLayer",
+	"esri/rest/support/Query",
+	//"esri/rest/Query",
+	//"esri/tasks/query",
+	"esri/geometry/Point",
+	"esri/geometry/Polygon",
+	"esri/analysis/DirectLineMeasurementAnalysis",
+	"esri/widgets/DirectLineMeasurement3D",
+	"esri/analysis/AreaMeasurementAnalysis",
+	"esri/widgets/AreaMeasurement3D",
+	"esri/analysis/SliceAnalysis",
+	"esri/widgets/Slice",
+	"esri/analysis/LineOfSightAnalysis",
+	"esri/widgets/LineOfSight"
+  ], function (
+	SpatialReference,
+	reactiveUtils,
+	SceneView,
+	WebScene,
+	FeatureLayer,
+	Query,
+	Point,
+	Polygon,
+	DirectLineMeasurementAnalysis,
+	DirectLineMeasurement3D,
+	AreaMeasurementAnalysis,
+	AreaMeasurement3D,
+	SliceAnalysis,
+	Slice,
+	LineOfSightAnalysis,
+	LineOfSight
+  ) {
+	// Load webscene and display it in a SceneView
+	
+	
+	
+view = new SceneView({
+	  container: "viewDiv",
+	  map: new WebScene({
+		portalItem: {
+		  id: "32d12af2671f4b1ebc614bdd79e2bf13"
+		}
+	  }),
+	  qualityProfile: "high"
+	});
+
+	
+	myLayers[0] = new FeatureLayer({url: "https://services2.arcgis.com/GrCObcYo81O3Ymu8/ArcGIS/rest/services/Buildings_data_gov_sg_WFL1/FeatureServer/0"});
+	view.map.add(myLayers[0]);
+	//myMap = view.map;
+  
+	// Add menu in the top right corner of the view
+	view.ui.add("menu", "bottom-left");
+
+	// To modify analysis objects we will temporarily store the corresponding widget in this variable.
+	let analysisWidget = null;
+
+	view.when(async () => {
+	  // Create the analysis objects
+	  const directLineMeasurementAnalysis = createDirectLineMeasurementAnalysis();
+	  const areaMeasurementAnalysis = createAreaMeasurementAnalysis();
+	  const sliceAnalysis = createSliceAnalysis();
+	  const lineOfSightAnalysis = createLineOfSightAnalysis();
+
+	  // Wait for the view to load before adding analysis objects
+	  await reactiveUtils.whenOnce(() => !view.updating);
+
+	  // Add analysis object to the view to show them
+	  view.analyses.addMany([
+		directLineMeasurementAnalysis,
+		areaMeasurementAnalysis,
+		sliceAnalysis,
+		lineOfSightAnalysis
+	  ]);
+
+	  // Configure buttons to interact with the analysis objects
+	  const areaMeasurementAnalysisButton = setupAnalysisButton(
+		"areaMeasurementAnalysisButton",
+		() => new AreaMeasurement3D({ view, analysis: areaMeasurementAnalysis })
+	  );
+
+	  const directLineMeasurementAnalysisButton = setupAnalysisButton(
+		"directLineMeasurementAnalysisButton",
+		() => new DirectLineMeasurement3D({ view, analysis: directLineMeasurementAnalysis })
+	  );
+
+	  const lineOfSightAnalysisButton = setupAnalysisButton(
+		"lineOfSightAnalysisButton",
+		() => new LineOfSight({ view, analysis: lineOfSightAnalysis })
+	  );
+
+	  const sliceAnalysisButton = setupAnalysisButton(
+		"sliceAnalysisButton",
+		() => new Slice({ view, analysis: sliceAnalysis })
+	  );
+
+	  // Remove button is a bit special
+	  document.getElementById("removeWidgetButton").addEventListener("click", () => {
+		removeActiveWidget();
+	  });
+
+	  function setupAnalysisButton(elementId, widgetFactotry) {
+		const button = document.getElementById(elementId);
+
+		button.addEventListener("click", () => {
+		  // remove current widget (if any)
+		  removeActiveWidget();
+
+		  // install a suitable widget in the `analysisWidget` variable
+		  analysisWidget = widgetFactotry();
+
+		  // highlight this button as the currently active one and add the remove widget button
+		  button.appearance = "outline";
+		  document.getElementById("removeWidgetButton").style.display = "block";
+
+		  // show the analysisWidget in the lower right corner
+		  view.ui.add(analysisWidget, "bottom-right");
+		});
+		return button;
+	  }
+
+	  function removeActiveWidget() {
+		// remove the analysisWidget if one exists
+		if (analysisWidget) {
+		  analysisWidget.destroy();
+		  analysisWidget = null;
+		}
+
+		// hide remove button
+		document.getElementById("removeWidgetButton").style.display = "none";
+
+		// reset appearance of the analysis buttons
+		areaMeasurementAnalysisButton.appearance = "solid";
+		directLineMeasurementAnalysisButton.appearance = "solid";
+		lineOfSightAnalysisButton.appearance = "solid";
+		sliceAnalysisButton.appearance = "solid";
+	  }
+	});
+
+	function createDirectLineMeasurementAnalysis() {
+	  return new DirectLineMeasurementAnalysis({
+		startPoint: newPoint(-8238827, 4971466, 3),
+		endPoint: newPoint(-8238819, 4971537, 3)
+	  });
+	}
+
+	function createAreaMeasurementAnalysis() {
+	  const roofPolygon = new Polygon({
+		rings: [
+		  [
+			[-8238931, 4971381, 50],
+			[-8238926, 4971426, 50],
+			[-8238835, 4971415, 50],
+			[-8238841, 4971369, 50],
+			[-8238931, 4971381, 50]
+		  ]
+		],
+		spatialReference: SpatialReference.WebMercator
+	  });
+
+	  return new AreaMeasurementAnalysis({
+		geometry: roofPolygon
+	  });
+	}
+
+	function createSliceAnalysis() {
+	  return new SliceAnalysis({
+		shape: {
+		  position: newPoint(-8238840, 4971700, 21),
+		  tilt: 0,
+		  width: 70,
+		  height: 100,
+		  heading: 278
+		}
+	  });
+	}
+
+	function createLineOfSightAnalysis() {
+	  return new LineOfSightAnalysis({
+		observer: { position: newPoint(-8238825, 4971538, 48) },
+		targets: [
+		  { position: newPoint(-8238903, 4971649, 2) },
+		  { position: newPoint(-8238866, 4971629, 19) },
+		  { position: newPoint(-8238825, 4971880, 2) },
+		  { position: newPoint(-8238791, 4971784, 2) }
+		]
+	  });
+	}*/
+
+	function newPoint(x, y, z) {
+	  // convenience function to have all points in the same spatial reference
+	  return new Point({ x, y, z, spatialReference: SpatialReference.WebMercator });
+	}
+	
+	fctZoomRow = function zoomRow(layerId, FieldId, val) {
+		var sqlStatement = FieldId +"=" + val;
+		zoomSql2(layerId, sqlStatement) 
+	}	
+	
+	function zoomSql1(layerId, sqlStatement) { //not working
+		let query = myLayers[layerId].createQuery();
+		query.where = sqlStatement;
+		query.outFields = ["ObjectID", "*****", "***", "****"];
+		//query.spatialRelationship = Query.SPATIAL_REL_ENVELOPEINTERSECTS;
+		query.returnGeometry = true;
+		//query.geometry = myMap.extent;   //Don't do this line
+
+		/*myLayers[layerId].featureLayer.queryFeatures(query)
+		  .then(function(response){
+			 // returns a feature set with features containing the following attributes
+			 // STATE_NAME, COUNTY_NAME, POPULATION, POP_DENSITY
+		   });*/
+			   
+		myLayers[layerId].selectFeatures(query, esri.layers.FeatureLayer.SELECTION_NEW, function(features) {
+			var stateExtent = features[0].geometry.getExtent().expand(5.0);
+			myMap.setExtent(stateExtent);
+		});
+
+	}
+
+	function zoomSql2(layerId, sqlStatement) {
+		//alert("val = " + val);
+
+		let query = myLayers[layerId].createQuery();
+		query.where = sqlStatement;
+		query.outFields = ["ObjectID"];
+		myLayers[layerId].queryFeatures(query)
+		  .then(function(response){
+				console.log(response.geometry);
+				sqlResults =  response;
+				var stateExtent = sqlResults.features[0].geometry.extent.expand(5.0);
+				//view.map.setExtent(stateExtent);
+				view.goTo(stateExtent);
+		   });	   
+	}
+	
+	function zoomSql3(layerId, sqlStatement) { //not working
+		  Query.executeQueryJSON( myLayers[layerId].url, {  
+			 where: sqlStatement
+		  }).then(function(results){
+			// results is a FeatureSet containing an array of graphic features
+			
+			console.log(results.graphics);			
+			var stateExtent = results.graphics[0].geometry.getExtent().expand(5.0);
+			view.map.setExtent(stateExtent);
+		  }, function(error){
+			   console.log(error); // will print error in console, if any
+			 
+		});
+	}
+
+	
+	//fctZoomRow(0, 'OBJECTID', 1);
+	
+  });
+//}
+
+var sqlResults;
+
+//zoomRow(0, "OBJECTID", 1)
+/*function zoomRow(layerId, FieldId, val) {
+	//alert("val = " + val);
+
+	var query = new esri.tasks.Query();
+	query.where = FieldId +"=" + val;
+	//query.geometry = myMap.extent;   //Don't do this line
+	query.spatialRelationship = Query.SPATIAL_REL_ENVELOPEINTERSECTS;
+	query.returnGeometry = true;
+
+	query.outFields = ["ObjectID", "*****", "***", "****"];
+	//featureLayer.selectFeatures(query,esri.layers.FeatureLayer.SELECTION_NEW);
+
+	myLayers[layerId].selectFeatures(query, esri.layers.FeatureLayer.SELECTION_NEW, function(features) {
+		var stateExtent = features[0].geometry.getExtent().expand(5.0);
+		view.map.setExtent(stateExtent);
+	});
+}*/
+
+function zoomRow2(layerId, FieldId, val) {
+  //alert("val = " + val);
+
+	let query = myLayers[layerId].createQuery();
+	query.where = FieldId +"=" + val;
+	query.outFields = ["ObjectID", "*****", "***", "****"];
+	//query.spatialRelationship = Query.SPATIAL_REL_ENVELOPEINTERSECTS;
+	query.returnGeometry = true;
+    //query.geometry = myMap.extent;   //Don't do this line
+
+	/*myLayers[layerId].featureLayer.queryFeatures(query)
+	  .then(function(response){
+		 // returns a feature set with features containing the following attributes
+		 // STATE_NAME, COUNTY_NAME, POPULATION, POP_DENSITY
+	   });*/
+	   	   
+	myLayers[layerId].selectFeatures(query, esri.layers.FeatureLayer.SELECTION_NEW, function(features) {
+		var stateExtent = features[0].geometry.getExtent().expand(5.0);
+		myMap.setExtent(stateExtent);
+	});
+
+}
+
+</script>	
+
+
+</head>
+<body class="fixed-sn mdb-skin">
+
+<!--Double navigation-->
+<header>
+  <!-- Sidebar navigation -->
+  <div id="slide-out" class="side-nav sn-bg-5 fixed wide" >  <!--"fixed" sn-bg-1  removed! wide red darken-4-->   
+      <ul class="custom-scrollbar">
+	<ul class="custom-scrollbar">
+	  <!-- Logo -->
+	  <li>
+		<div class="logo-wrapper waves-light"  style="height:150px;text-align: center">
+		  <a href="#"><img src="img/LTA_logo.png" class=" " style="padding: 0px 0px 0px 0px; width:60%; " text-align="center"></a>
+		</div>
+	  </li>
+	  <!--/. Logo -->
+	  <!--Search Form-->
+	  <li>
+		<form class="search-form" role="search">
+		  <div class="form-group md-form mt-0 pt-1 waves-light">
+			<input type="text" class="form-control" placeholder="Search">
+		  </div>
+		</form>
+	  </li>
+	  <!--/.Search Form-->
+	  <!-- Side navigation links -->
+	  <li>
+		<ul class="collapsible collapsible-accordion">
+		  <li><a class="collapsible-header waves-effect arrow-r">
+			<i class="fas fa-chevron-right"></i>Availability<i class="fas fa-angle-down rotate-icon"></i></a>
+			<div class="collapsible-body">
+			  <ul class="list-unstyled">
+				<li><a href="#" class="waves-effect">Search availability</a></li>
+				<li><a href="#" class="waves-effect">Search by role</a></li>
+			  </ul>
+			</div>
+		  </li>
+		  <li><a class="collapsible-header waves-effect arrow-r">
+			<i class="fas fa-hand-pointer"></i> Jobs<i class="fas fa-angle-down rotate-icon"></i></a>
+			<div class="collapsible-body">
+			  <ul class="list-unstyled">
+				<li><a href="#" class="waves-effect">My jobs</a>
+				</li>
+				<li><a href="#" class="waves-effect">Jobs for my approval</a>
+				</li>
+			  </ul>
+			</div>
+		  </li>
+		  <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-eye"></i> My data<i class="fas fa-angle-down rotate-icon"></i></a>
+			<div class="collapsible-body">
+			  <ul class="list-unstyled">
+				<li><a href="#" class="waves-effect">Manage my profile</a></li>
+				<li><a href="#" class="waves-effect">Manage my jobs</a></li>
+				<li><a href="#" class="waves-effect">Manage Reports</a></li>
+			  </ul>
+			</div>
+		  </li>
+		  <li><a class="collapsible-header waves-effect arrow-r"><i class="far fa-envelope"></i> Administration<i class="fas fa-angle-down rotate-icon"></i></a>
+			<div class="collapsible-body">
+			  <ul class="list-unstyled">
+
+				<li><a href="#" class="waves-effect">Reload HR data</a></li>
+				<li><a href="#" class="waves-effect">Grant/revoke functions</a></li>
+				<li><a href="#" class="waves-effect">Re-trigger interface pull</a></li>
+				<li><a href="#" class="waves-effect">Set aproval SLA</a></li>
+				<li><a href="#" class="waves-effect">Set urgency level matrix</a></li>
+				
+			  </ul>
+			</div>
+		  </li>
+		</ul>
+	  </li>
+	  <!--/. Side navigation links -->
+	</ul>
+	<div class="sidenav-bg mask-strong"></div>
+  </div>
+  <!--/. Sidebar navigation -->
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav text-center nav_cust" >
+	<!-- SideNav slide-out button -->
+	<div class="float-left">
+	  <a  id="btnMenuSlide" href="#" data-activates="slide-out" class="button-collapse" ><i class="fas fa-bars"></i></a>
+	</div>
+	
+	  <H4 ><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Property Explorer and Mangement System</B></h4>
+	
+	<!-- Breadcrumb-->
+
+	<ul class="nav navbar-nav nav-flex-icons ml-auto">
+	  <!--li class="nav-item">
+		<a class="nav-link"><i class="fas fa-envelope"></i> <span class="clearfix d-none d-sm-inline-block">Contact</span></a>
+	  </li>
+	  <li class="nav-item">
+		<a class="nav-link"><i class="fas fa-comments"></i> <span class="clearfix d-none d-sm-inline-block">Support</span></a>
+	  </li-->
+	  <li class="nav-item">
+		<br><br>
+		<a class="nav-link"><i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Cristian</span></a>
+	  </li>
+	  <li class="nav-item dropdown">
+	  <br><br>
+		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+		  aria-haspopup="true" aria-expanded="false"> Admin</a>
+		<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+		  <a class="dropdown-item" href="#">Log out</a>
+		  <a class="dropdown-item" href="#">Manage account</a>
+		  <a class="dropdown-item" href="#">Audit</a>
+		</div>
+	  </li>
+	</ul>
+  </nav>
+  <!-- /.Navbar -->
+</header>
+<!--/.Double navigation-->
+
+<!--Main layout-->
+<div style="height:90px"></div>
+
+<div class="row">
+	<div class="col-md-6" style=" padding-right: 0px;">
+	
+	
+	
+	<!-- Classic tabs -->
+	<div class="classic-tabs mx-2">
+
+	  <ul class="nav tabs-primary" id="myClassicTabShadow" role="tablist">
+		<li class="nav-item">
+		  <a class="nav-link waves-light active show" id="Results-tab-classic-shadow" data-toggle="tab" href="#Results-classic-shadow"
+			role="tab" aria-controls="Results-classic-shadow" aria-selected="false">Availability</a>
+		</li>
+		<li class="nav-item" style="margin-left: 0px;">
+		  <a class="nav-link  waves-light " id="building-tab-classic-shadow" data-toggle="tab" href="#building-classic-shadow"
+			role="tab" aria-controls="building-classic-shadow" aria-selected="true">Search Approvers</a>
+		</li>
+	  </ul>
+
+	  <div class="tab-content card" id="myClassicTabContentShadow" style="padding: 5px 10px 5px 10px ;">
+		<div class="tab-pane fade  " id="building-classic-shadow" role="tabpanel" aria-labelledby="building-tab-classic-shadow">
+			
+
+			<div class="card card-cascade narrower" style="padding: 0px 10px 0px 10px; display:block" id="cdSearchBuild">
+				<div class="btn-group  " data-toggle="buttons">
+				  <label class="btn btn-light-blue  btn-sm form-check-label active">
+					<input class="form-check-input" type="radio" name="options" id="option1" autocomplete="off" checked>Approver</label>
+				  <label class="btn btn-light-blue  btn-sm form-check-label">
+					<input class="form-check-input" type="radio" name="options" id="option2" autocomplete="off"> Supervisor</label>
+				</div>
+				<div class="btn-group  " data-toggle="buttons">
+				  <label class="btn btn-light-blue  btn-sm form-check-label active">
+					<input class="form-check-input" type="radio" name="options" id="option1" autocomplete="off" checked>Available</label>
+				  <label class="btn btn-light-blue  btn-sm form-check-label">
+					<input class="form-check-input" type="radio" name="options" id="option2" autocomplete="off">Amy</label>
+				</div>
+				
+				<div class="form-row md-form">
+					<div class="col-md-12">	
+					
+						<select class="mdb-select " multiple searchable="Search building..">
+						  <option value="" data-icon="img/Danny_Dang.png" class="rounded-circle">Danny Dang [Approver]</option>
+						  <option value="" data-icon="img/Li_Jiaxin.png" class="rounded-circle">Lin Jiaxin [Approver]</option>
+						  <option value="" data-icon="img/Wong_Suyi.png" class="rounded-circle">Wong Suyi [Approver]</option>
+						  <option value="" data-icon="img/Vincenzo_Lauretta.png" class="rounded-circle">Vincenzo Lauretta [Admin]</option>
+						  <option value="" data-icon="img/Conete_Cristian.png" class="rounded-circle">Conete Cristian [Operator]</option>
+					
+						</select>
+						<label class="mdb-main-label">Search approver</label>
+					</div>
+					
+					
+					<div class="col-md-6 spacer_5">
+						<select class="mdb-select colorful-select dropdown-primary">
+						  <option value="" >RAIL / ROAD SYSTEMS ENGINEERING GROUP</option>
+						  <option value="" >ROAD & COMMUTER INFRASTRUCTURE</option>
+						  <option value="" >TECHNOLOGY GROUPS</option>
+						  <option value="" >INFRASTRUCTURE DESIGN & ENGINEERING GROUP</option>
+						  <option value="" >TRAFFIC & ROAD OPERATIONS GROUP</option>
+						  <option value="" >PUBLIC TRANSPORT GROUP</option>
+						</select>
+						<label class="mdb-main-label">Department</label>
+					</div>
+					<div class="col-md-6 spacer_5">
+						<select class="mdb-select colorful-select dropdown-primary">
+							<option value="Residential" >Processing officer</option>
+							<option value="Commercial" >Approver</option>
+							<option value="Industrial" >Supervisor</option>
+							<option value="Retail" >Admin</option>
+						</select>
+							
+						<label class="mdb-main-label">Role</label>
+					</div><!-- column -->				
+
+							
+					<button type="submit" class="btn btn-primary btn-md float-right " onclick="toggleSearch(true)">Advanced</button>
+					<button type="submit" class="btn btn-primary btn-md float-right " 
+						onclick="document.getElementById('Results-tab-classic-shadow').click();">Search</button>
+					
+
+				</div> <!-- row -->
+			</div><!-- card -->
+			<div class="card card-cascade narrower" style="padding: 0px 10px 0px 10px; display:none;" id="cdSearchAdv">
+				<button type="button" class="btn btn-outline-success btn-rounded waves-effect btn-sm" onclick="addNestedItem('AND');">AND</button>
+				<button type="button" class="btn btn-outline-primary btn-rounded waves-effect btn-sm" onclick="addNestedItem('OR');">OR</button>
+				<div class="form-row ">
+				
+					
+					<div class="col-md-5 ">	
+						<select class="mdb-select md-form" searchable="Search here.." id="selNestField">
+						  <option value="" disabled selected>Choose field ...</option>
+					      <option value="Name" >Name</option>
+						  <option value="Grade" >Grade</option>
+						  <option value="Country" >Country</option>
+						  <option value="PostalCode" >Postal Code</option>
+						  <option value="Street_no" >Street no</option>
+						  <option value="Street" >Street</option>
+			  
+						</select>
+						<label class="mdb-main-label">Field</label>
+
+					</div>					
+					<div class="col-md-3 ">
+						<select class="mdb-select md-form colorful-select dropdown-primary "  id="selNestOper">
+						  <option value="=" >Equals</option>
+						  <option value="LIKE" >Contains</option>
+						  <option value="&lt;" >&lt;</option>
+						  <option value="&gt;" >&gt;</option>
+						  <option value="Is NULL" >IS NULL</option>
+						  <option value="IS NOT NULL" >IS NOT NULL</option>
+
+						</select>
+						<label class="mdb-main-label">operator</label>
+					</div>
+					<div class="col-md-3  md-form">
+						<input type="text" class="form-control " id="inNestValue" > 
+						<label for="inNestValue">Value <label>	
+					</div><!-- column -->			
+         
+            
+
+					
+					<div class="col-md-1" style="align-items: center;">	<BR>
+						<img src="http://localhost:8080/ECP_designer/img/add_blue.png" id="appendnestable" onclick="addNestedItemVal();">
+					</div>
+
+				</div> <!-- row -->
+
+
+				<menu id="nestable-menu">							
+					<!--input id="menuText" value="" class="input-xlarge"-->								
+					
+				</menu>
+				<div class="dd" id="nestable3">
+					<ol class="dd-list outer">
+						<li class="dd-item dd3-item" data-id="1" id="nestItem1">
+							<div class="dd-handle dd3-handle"></div>
+							<div class="dd3-content">name LIKE 'IBP' <img src="http://localhost:8080/ECP_designer/img/delGray.gif" onClick="removeNestedItem('nestItem1')"></div>
+						</li>
+						<li class="dd-item dd3-item" data-id="2" id="nestItem2">
+							<div class="dd-handle dd3-handle"></div>
+							<div class="dd3-content nestOpAnd ">AND<img src="http://localhost:8080/ECP_designer/img/delGray.gif" onClick="removeNestedItem('nestItem2')"></div>
+							<ol class="dd-list">
+								<li class="dd-item dd3-item" data-id="3" id="nestItem3">
+									<div class="dd-handle dd3-handle"></div>
+									<div class="dd3-content">Date &lt; '28/02/2021' <img src="http://localhost:8080/ECP_designer/img/delGray.gif" onClick="removeNestedItem('nestItem3')"> </div>
+								</li>
+								<li class="dd-item dd3-item" data-id="4" id="nestItem4">
+									<div class="dd-handle dd3-handle"></div>
+									<div class="dd3-content">Date &gt; '31/01/2022' <img src="http://localhost:8080/ECP_designer/img/delGray.gif" onClick="removeNestedItem('nestItem4')"></div>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</div>
+				<div>	
+					<button type="submit" class="btn btn-primary btn-md float-right " 
+						onclick="document.getElementById('Results-tab-classic-shadow').click();">Search</button>	
+					<button type="submit" class="btn btn-primary btn-md float-right " onclick="validateAdv(false)">Validate</button>
+					<button type="submit" class="btn btn-primary btn-md float-right " onclick="toggleSearch(false)">Standard</button>
+				</div>
+
+			</div><!-- card -->
+			
+	
+		</div>	<!-- tab pane -->	
+
+
+		<div class="tab-pane fade  active show " id="Results-classic-shadow" role="tabpanel" aria-labelledby="Results-tab-classic-shadow">
+
+
+
+<!-- Table with panel -->
+<div class="card card-cascade narrower">
+
+  <!--Card image-->
+  <div
+    class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+    <div>
+      <button type="button" title="View propoerties details" class="btn btn-outline-white btn-rounded btn-sm px-2">
+        <i class="fas fa-th-large mt-0"></i>
+      </button>
+      <button type="button"  title="Select records on map" class="btn btn-outline-white btn-rounded btn-sm px-2">
+        <i class="fas fa-columns mt-0"></i>
+      </button>
+    </div>
+
+    <a href="" class="white-text mx-3">Approver availability</a>
+
+    <div>
+      <button type="button" title="Edit first selected record" class="btn btn-outline-white btn-rounded btn-sm px-2">
+        <i class="fas fa-pencil-alt mt-0"></i>
+      </button>
+      <button type="button"  title="Delete selected records" class="btn btn-outline-white btn-rounded btn-sm px-2">
+        <i class="far fa-trash-alt mt-0"></i>
+      </button>
+      <button type="button" title="View selected records" class="btn btn-outline-white btn-rounded btn-sm px-2" onClick="document.getElementById('btnMenuSlide').click();">
+        <i class="fas fa-info-circle mt-0"></i>
+      </button>
+    </div>
+
+  </div>
+  <!--/Card image-->
+
+<div class="card card-cascade narrower">
+
+
+	  <div class="px-4">
+
+		<div class="table-wrapper">
+		  <!--Table-->
+
+		<table id="dtBasicExample2" class="table table-sm  table-striped table-hover mb-0" cellspacing="0" width="100%">
+
+			<!--Table head-->
+			<thead>
+			  <tr >
+				<th class="th-sm"><a>Name<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Role<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Department<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Position<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Availability<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Covering officer<i class="fas fa-sort ml-1"></i></a></th>
+			  </tr>
+			</thead>
+			<!--Table head-->
+
+			<!--Table body style="border-bottom:2px solid #dee2e6"-->
+			<tbody style="padding-bottom: 0px; padding-top: 0px;">
+			  <tr >
+				<td class="td_slim">John Chan</td>
+				<td class="td_slim">Supervisor</td>
+				<td class="td_slim">Snr. Engineer</td>
+				<td class="td_slim">TRO Group</td>
+				<td class="td_slim">No</td>
+				<td class="td_slim">Michael Woo</td>
+			  </tr>
+			  <tr>
+				<td class="td_slim">Michael Woo</td>
+				<td class="td_slim">Thornton</td>
+				<td class="td_slim">Snr. Engineer</td>
+				<td class="td_slim">TRO Group</td>
+				<td class="td_slim">No</td>
+				<td class="td_slim">Dany Lim</td>
+			  </tr>
+			  <tr>
+				<td class="td_slim">Dany Lim</td>
+				<td class="td_slim">the Bird</td>
+				<td class="td_slim">Engineer</td>
+				<td class="td_slim">TRO Group</td>
+				<td class="td_slim">Yes</td>
+				<td class="td_slim">John Chan</td>
+			  </tr>
+		
+			</tbody>
+			 
+			<!--Table body-->
+		  </table>
+
+		  <!--Table-->
+		</div>
+
+	  </div>
+	</div>
+</div>
+<!-- Table with panel -->
+
+
+
+
+		</div><!-- tab pane -->	
+
+
+
+	  </div><!-- tab  -->	
+
+	</div>
+	<!-- Classic tabs -->
+	
+			
+		
+	</div>	
+	
+	<div class="col-md-6" style="padding-left: 0px;">
+	
+		<!--div id="viewDiv" style="height:800px">
+		  <div id="menu" class="esri-widget">
+			<calcite-label>
+			  Click one of the buttons below to open the corresponding analysis widget and interact with the analysis.
+			</calcite-label>
+
+			<calcite-button
+			  id="directLineMeasurementAnalysisButton"
+			  icon-start="measure-line"
+			  title="Interact with direct line measurement"
+			>
+			</calcite-button>
+			<calcite-button
+			  id="areaMeasurementAnalysisButton"
+			  icon-start="measure-area"
+			  title="Interact with area measurement"
+			>
+			</calcite-button>
+			<calcite-button id="sliceAnalysisButton" icon-start="slice" title="Interact with slice plane"> </calcite-button>
+			<calcite-button
+			  id="lineOfSightAnalysisButton"
+			  icon-start="line-of-sight"
+			  title="Interact with line of sight analysis"
+			>
+			</calcite-button>
+			<calcite-label></calcite-label>
+			<calcite-button id="removeWidgetButton" title="Remove Widget" style="display: none; width: 140px"
+			  >Remove Widget
+			</calcite-button>
+		  </div>
+		</div-->
+		<div id="viewDiv" style="height:800px"></div>
+		<div id="setting" class="esri-widget">
+		   <div id="editorConfigDiv">
+			  <div class="editor-config">
+				 <button class="esri-button esri-button--secondary" id="renderFloorType" type="button" title="Floortype"> Floortype </button>
+			  </div>
+			  <div class="editor-config">
+				 <button class="esri-button" id="renderStatus" type="button" title="Status">Status</button>
+			  </div>
+		   </div>
+		</div>
+	
+	</div>
+</div>
+
+	
+  </div>
+
+<!--/Main layout-->
+
+<!--Footer-->
+<footer class="page-footer text-center text-md-left pt-4">
+
+
+<!--Social buttons>
+<div class="social-section text-center">
+  <ul class="list-unstyled list-inline">
+	<li class="list-inline-item"><a class="btn-floating btn-fb"><i class="fab fa-facebook-f"> </i></a></li>
+	<li class="list-inline-item"><a class="btn-floating btn-tw"><i class="fab fa-twitter"> </i></a></li>
+	<li class="list-inline-item"><a class="btn-floating btn-gplus"><i class="fab fa-google-plus-g"> </i></a></li>
+	<li class="list-inline-item"><a class="btn-floating btn-li"><i class="fab fa-linkedin-in"> </i></a></li>
+	<li class="list-inline-item"><a class="btn-floating btn-git"><i class="fab fa-github"> </i></a></li>
+  </ul>
+</div>
+<!--/.Social buttons-->
+
+  <!--Copyright-->
+  <div class="footer-copyright py-3 text-center">
+	<div class="container-fluid">  © 2023   </a>
+	</div>
+  </div>
+  <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+
+<script>
+
+//========== nested menu management ===========
+var totalCount = 4;
+function removeNestedItem(itemId){
+	var elem = document.getElementById(itemId);
+	elem.parentNode.removeChild(elem);
+	//updateOutput($('#nestable2').data('output', $('#nestable2-output')));
+}
+function addNestedItemVal(){
+
+	var itemTxt = document.getElementById("selNestField").value + 
+		"&nbsp;"+ document.getElementById("selNestOper").value +
+		"&nbsp;'"+ document.getElementById("inNestValue").value +"'" ;
+	//console.log(itemTxt);
+	return addNestedItem(itemTxt);
+}
+function addNestedItem(text){
+console.log(text);
+	var clsColor = text == "AND" ? " nestOpAnd " : text == "OR" ? " nestOpOr " : "";	
+	console.log(clsColor);
+	var newLi = '<li class="dd-item dd3-item" data-id="' + ++totalCount + 
+		'" id="nestItem' + totalCount + '"><div class="dd-handle dd3-handle" ></div><div class="dd3-content'+clsColor+'" name="'+
+		totalCount+'">'+ text +'<img src="http://localhost:8080/ECP_designer/img/delGray.gif" onClick="removeNestedItem(\'nestItem'+
+		totalCount+ '\')"></div></li>';
+	console.log("newLi:"+newLi)
+	$('ol.outer').append(newLi);	
+	document.getElementById("inNestValue").value = "";
+}
+document.getElementById("inNestValue").addEventListener("keydown", function(e) {
+    if (!e) { var e = window.event; }
+    //e.preventDefault(); // sometimes useful
+    if (e.keyCode == 13) {
+		addNestedItem(); 
+	}
+}, false);
+
+function toggleSearch(isAdv){
+	if (isAdv){
+		document.getElementById('cdSearchBuild').style.display='none';
+		document.getElementById('cdSearchAdv').style.display='block'
+	}else{
+		document.getElementById('cdSearchBuild').style.display='block';
+		document.getElementById('cdSearchAdv').style.display='none'
+	
+	}
+	
+}
+
+
+function togleBdSection(btn){
+	if (document.getElementById("div_"+btn.id).style.display == "block")
+		document.getElementById("div_"+btn.id).style.display = "none";
+	else
+		document.getElementById("div_"+btn.id).style.display = "block"
+}
+
+function filterSections(){
+
+    var mddSections = document.getElementById("ddSections");
+	var secDivs;
+    for (var i = 0; i < mddSections.length; i++)
+        if (mddSections.options[i].selected){
+			secDivs = document.getElementsByClassName(mddSections.options[i].value);
+			for (j = 0; j < secDivs.length; j++)
+				secDivs[j].style.display = "block";					
+		} else{
+			secDivs = document.getElementsByClassName(mddSections.options[i].value);
+			for (j = 0; j < secDivs.length; j++)
+				secDivs[j].style.display = "none";
+		}
+}
+//https://developers.arcgis.com/javascript/latest/sample-code/visualization-buildings-3d/
+
+$(document).ready(function() {
+
+
+	new WOW().init(); //side menu init
+
+	var updateOutput = function(e){
+		var list   = e.length ? e : $(e.target),
+			output = list.data('output');
+		if (window.JSON) {
+			output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+		} else {
+			output.val('JSON browser support required for this demo.');
+		}
+	};
+	$('#nestable3').nestable();
+	
+
+  
+	$('.mdb-select').materialSelect();
+	$('.datepicker').pickadate();
+
+	// SideNav Initialization
+	$(".button-collapse").sideNav();
+  
+	//  $('#dtBasicExample').DataTable();
+	//  $('.dataTables_length').addClass('bs-select');  
+	/*$('#dtHorizontalVerticalExample').DataTable({
+		"scrollX": true,
+		"scrollY": 200,
+	});*/
+
+	  $('#dt-filter-search').dataTable({
+		"scrollX": true,
+		columnDefs: [{
+		  orderable: false,
+		  className: 'select-checkbox select-checkbox-all',
+		  targets: 0
+		}],
+		select: {
+		  style: 'multi',
+		  selector: 'td:first-child'
+		},
+		initComplete: function () {
+		  this.api().columns().every( function () {
+			  var column = this;
+			  var search = $(`<input class="form-control form-control-sm" type="text" placeholder="Search">`)
+				  .appendTo( $(column.footer()).empty() )
+				  .on( 'change input', function () {
+					  var val = $(this).val()
+
+					  column
+						  .search( val ? val : '', true, false )
+						  .draw();
+				  } );
+
+		  } );
+	  }
+	  });
+
+  $('#dtBasicExample2').dataTable({
+		"scrollX": true,
+
+  });
+  //$('#dtBasicExample2').DataTable();
+  $('.dataTables_length').addClass('bs-select');
+
+	  
+// $('#dtSpaceList_1').dataTable({"scrollX": true });  
+
+
+
+	  
+  $('.dataTables_length').addClass('bs-select');
+  
+  
+  /*$('#dt-filter-search').dataTable({
+
+    initComplete: function () {
+      this.api().columns().every( function () {
+          var column = this;
+          var search = $(`<input class="form-control form-control-sm" type="text" placeholder="Search">`)
+              .appendTo( $(column.footer()).empty() )
+              .on( 'change input', function () {
+                  var val = $(this).val()
+
+                  column
+                      .search( val ? val : '', true, false )
+                      .draw();
+              } );
+
+      } );
+  }
+  });*/
+
+
+
+  
+  var response = {
+    features :[{
+  
+	   attributes : [
+			{name: "Cris", age:21},
+			{name: "wer", age:35},
+			{name: "werw", age:54}
+	   ]
+	 }]
+  
+  };
+  
+  // Convert response JSON to DataTable input JSON format
+	var data = response.features.map(function(feature) {
+		return Object.values(feature.attributes);
+		//return [ feature.attributes.fid, feature.attributes.bus_roof_n, feature.attributes.loc_desc, feature.attributes.bus_stop_n];
+
+	});
+	
+	console.log(data);
+
+	// Initialize DataTable
+	//var table = $('#myTable').DataTable({data: data});
+
+	//console.log(data);
+	/*table = $('#myTable').DataTable({
+		data: data,
+		columnDefs: [ 
+		  {	data: null,
+            orderable: false,
+			defaultContent: '',
+            className: 'select-checkbox',
+            //targets:  0	
+          },
+		  { data: 'fid' },
+		  { data: 'bus_roof_n' },
+		  { data: 'loc_desc' },
+		  { data: 'bus_stop_n' }
+	    ],
+		select: {
+		  style: 'multi',
+		  selector: 'td:first-child'
+		},
+		order: [[ 1, 'asc' ]],
+		rowId: 'fid'
+	  });
+
+	 /* $('#add-row-form').submit(function(event) {
+		event.preventDefault();
+
+		var rowValues = {
+		  'fid': $('#fid').val(),
+		  'bus_roof_n': $('#bus_roof_n').val(),
+		  'loc_desc': $('#loc_desc').val(),
+		  'bus_stop_n': $('#bus_stop_n').val()
+		};
+
+		var rowNode = table.row.add(rowValues).draw().node();
+		$(rowNode).attr('id', rowValues['fid']);
+
+		$('#add-row-popup').hide();
+		$('#add-row-form').trigger('reset');
+	});
+
+	$('#add-row').click(function() {
+		$('#add-row-popup').show();
+	});*/
+
+  
+	document.getElementById("btnMenuSlide").click();
+	document.getElementById("btnMenuSlide").style.display = "block";
+});
+
+/* run with chrome cors
+fetch('CBRW_PropInfo.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+}
+//#160a4c  banner back	light blue 30d8fc
+
+*/
+
+	
+
+</script>
+
+
+</body>
+</html>

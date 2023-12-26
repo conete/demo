@@ -1,0 +1,2966 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<link rel="icon" href="img/home.jpg">
+	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/mdb.min.css">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/style.css">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/addons/datatables.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://localhost:8080/ECP_designer/MDB4/css/addons/datatables-select.min.css" rel="stylesheet">
+	
+
+	
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/jquery.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/popper.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/mdb.min.js"></script>
+		
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/addons/datatables.min.js"></script>
+	<script type="text/javascript" src="http://localhost:8080/ECP_designer/MDB4/js/addons/datatables-select.min.js"></script>
+	
+<style> <!-- app specific-->
+/* Only for snippet */
+.double-nav .breadcrumb-dn {
+	color: #fff;
+}
+
+.nav_cust{
+  background-image:url(img/arcgis-banner_bl.jpg) ;
+  background-size:100% 100%;
+  text-align: center !important; 
+  height: 90px !important;
+}
+
+.sn-bg-5 {
+    background-image: url("img/esri_bck.jpg")
+}
+
+
+.spacer_5{
+	padding-bottom: 5px;
+}
+
+.spacer_10{
+	padding-bottom: 10px;
+}
+
+.td_slim{
+ padding-bottom: 0px !important; 
+ padding-top: 5px !important;
+}
+
+.dd3-handle{
+    background: -webkit-linear-gradient(top, #007bff 0%, #33b5e5 100%) !important;
+}
+
+.nestOpAnd{
+	color:lime  !important;
+	font-weight: bold !important;
+}
+
+.nestOpOr{
+	color:DodgerBlue !important;
+	font-weight: bold !important;
+}
+
+</style>
+<style><!-- mdb -->
+
+
+.dtHorizontalVerticalExampleWrapper {
+	max-width: 600px;
+	margin: 0 auto;
+}
+#dtHorizontalVerticalExample th, td {
+	white-space: nowrap;
+}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+	bottom: .5em;
+}
+
+</style>
+
+
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
+<script src="https://www.jqueryscript.net/demo/Mobile-Compatible-jQuery-Drag-Drop-Plugin-Nestable/jquery.nestable.js"></script>
+<style type="text/css"> <!-- nestable-->
+
+.cf:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .cf { zoom: 1; }
+*:first-child+html .cf { zoom: 1; }
+
+html { margin: 0; padding: 0; }
+body { font-size: 100%; margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+h1 { font-size: 1.75em; margin: 0 0 0.6em 0; }
+
+a { color: #2996cc; }
+a:hover { text-decoration: none; }
+
+p { line-height: 1.5em; }
+.small { color: #666; font-size: 0.875em; }
+.large { font-size: 1.25em; }
+
+/**
+ * Nestable
+ */
+
+.dd { position: relative; display: block; margin: 0; padding: 0; max-width: 600px; list-style: none; font-size: 13px; line-height: 20px; }
+
+.dd-list { display: block; position: relative; margin: 0; padding: 0; list-style: none; }
+.dd-list .dd-list { padding-left: 30px; }
+.dd-collapsed .dd-list { display: none; }
+
+.dd-item,
+.dd-empty,
+.dd-placeholder { display: block; position: relative; margin: 0; padding: 0; min-height: 20px; font-size: 13px; line-height: 20px; }
+
+.dd-handle { display: block; height: 30px; margin: 5px 0; padding: 5px 10px; color: #333; text-decoration: none; font-weight: bold; border: 1px solid #ccc;
+    background: #fafafa;
+    background: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:    -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:         linear-gradient(top, #fafafa 0%, #eee 100%);
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    box-sizing: border-box; -moz-box-sizing: border-box;
+}
+.dd-handle:hover { color: #2ea8e5; background: #fff; }
+
+.dd-item > button { display: block; position: relative; cursor: pointer; float: left; width: 25px; height: 20px; margin: 5px 0; padding: 0; text-indent: 100%; white-space: nowrap; overflow: hidden; border: 0; background: transparent; font-size: 12px; line-height: 1; text-align: center; font-weight: bold; }
+.dd-item > button:before { content: '+'; display: block; position: absolute; width: 100%; text-align: center; text-indent: 0; }
+.dd-item > button[data-action="collapse"]:before { content: '-'; }
+
+.dd-placeholder,
+.dd-empty { margin: 5px 0; padding: 0; min-height: 30px; background: #f2fbff; border: 1px dashed #b6bcbf; box-sizing: border-box; -moz-box-sizing: border-box; }
+.dd-empty { border: 1px dashed #bbb; min-height: 100px; background-color: #e5e5e5;
+    background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                      -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                         -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:         linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                              linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+
+.dd-dragel { position: absolute; pointer-events: none; z-index: 9999; }
+.dd-dragel > .dd-item .dd-handle { margin-top: 0; }
+.dd-dragel .dd-handle {
+    -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+            box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+}
+
+/**
+ * Nestable Extras
+ */
+
+.nestable-lists { display: block; clear: both; padding: 30px 0; width: 100%; border: 0; border-top: 2px solid #ddd; border-bottom: 2px solid #ddd; }
+
+#nestable-menu { padding: 0; margin: 20px 0; }
+
+#nestable-output,
+#nestable2-output { width: 100%; height: 7em; font-size: 0.75em; line-height: 1.333333em; font-family: Consolas, monospace; padding: 5px; box-sizing: border-box; -moz-box-sizing: border-box; }
+
+#nestable2 .dd-handle {
+    color: #fff;
+    border: 1px solid #999;
+    background: #bbb;
+    background: -webkit-linear-gradient(top, #bbb 0%, #999 100%);
+    background:    -moz-linear-gradient(top, #bbb 0%, #999 100%);
+    background:         linear-gradient(top, #bbb 0%, #999 100%);
+}
+#nestable2 .dd-handle:hover { background: #bbb; }
+#nestable2 .dd-item > button:before { color: #fff; }
+
+@media only screen and (min-width: 700px) {
+
+    .dd { float: left; width: 48%; }
+    .dd + .dd { margin-left: 2%; }
+
+}
+
+.dd-hover > .dd-handle { background: #2ea8e5 !important; }
+
+/**
+ * Nestable Draggable Handles
+ */
+
+.dd3-content { display: block; height: 30px; margin: 5px 0; padding: 5px 10px 5px 40px; color: #333; text-decoration: none; font-weight: bold; border: 1px solid #ccc;
+    background: #fafafa;
+    background: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:    -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:         linear-gradient(top, #fafafa 0%, #eee 100%);
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    box-sizing: border-box; -moz-box-sizing: border-box;
+}
+.dd3-content:hover { color: #2ea8e5; background: #fff; }
+
+.dd-dragel > .dd3-item > .dd3-content { margin: 0; }
+
+.dd3-item > button { margin-left: 30px; }
+
+.dd3-handle { position: absolute; margin: 0; left: 0; top: 0; cursor: pointer; width: 30px; text-indent: 100%; white-space: nowrap; overflow: hidden;
+    border: 1px solid #aaa;
+    background: #ddd;
+    background: -webkit-linear-gradient(top, #ddd 0%, #bbb 100%);
+    background:    -moz-linear-gradient(top, #ddd 0%, #bbb 100%);
+    background:         linear-gradient(top, #ddd 0%, #bbb 100%);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.dd3-handle:before { content: '≡'; display: block; position: absolute; left: 0; top: 3px; width: 100%; text-align: center; text-indent: 0; color: #fff; font-size: 20px; font-weight: normal; }
+.dd3-handle:hover { background: #ddd; }
+
+</style>
+
+
+<link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
+<script src="https://js.arcgis.com/4.26/"></script>
+<script type="module" src="https://js.arcgis.com/calcite-components/1.0.7/calcite.esm.js"></script>
+<link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/1.0.7/calcite.css" />
+<script> <!-- ags init -->
+
+
+var myLayers = [50];
+var  view;
+
+//import Query from "@arcgis/core/rest/support/Query.js";
+
+var fctZoomRow;
+
+//init();
+//function init(){
+
+//dojo.require("esri.tasks.query");
+
+
+  require([
+	"esri/geometry/SpatialReference",
+	"esri/core/reactiveUtils",
+	"esri/views/SceneView",
+	"esri/WebScene",
+	"esri/layers/FeatureLayer",
+	"esri/rest/support/Query",
+	//"esri/rest/Query",
+	//"esri/tasks/query",
+	"esri/geometry/Point",
+	"esri/geometry/Polygon",
+	"esri/analysis/DirectLineMeasurementAnalysis",
+	"esri/widgets/DirectLineMeasurement3D",
+	"esri/analysis/AreaMeasurementAnalysis",
+	"esri/widgets/AreaMeasurement3D",
+	"esri/analysis/SliceAnalysis",
+	"esri/widgets/Slice",
+	"esri/analysis/LineOfSightAnalysis",
+	"esri/widgets/LineOfSight"
+  ], function (
+	SpatialReference,
+	reactiveUtils,
+	SceneView,
+	WebScene,
+	FeatureLayer,
+	Query,
+	Point,
+	Polygon,
+	DirectLineMeasurementAnalysis,
+	DirectLineMeasurement3D,
+	AreaMeasurementAnalysis,
+	AreaMeasurement3D,
+	SliceAnalysis,
+	Slice,
+	LineOfSightAnalysis,
+	LineOfSight
+  ) {
+	// Load webscene and display it in a SceneView
+	view = new SceneView({
+	  container: "viewDiv",
+	  map: new WebScene({
+		portalItem: {
+		  id: "32d12af2671f4b1ebc614bdd79e2bf13"
+		}
+	  }),
+	  qualityProfile: "high"
+	});
+
+	
+	myLayers[0] = new FeatureLayer({url: "https://services2.arcgis.com/GrCObcYo81O3Ymu8/ArcGIS/rest/services/Buildings_data_gov_sg_WFL1/FeatureServer/0"});
+	view.map.add(myLayers[0]);
+	//myMap = view.map;
+  
+	// Add menu in the top right corner of the view
+	view.ui.add("menu", "bottom-left");
+
+	// To modify analysis objects we will temporarily store the corresponding widget in this variable.
+	let analysisWidget = null;
+
+	view.when(async () => {
+	  // Create the analysis objects
+	  const directLineMeasurementAnalysis = createDirectLineMeasurementAnalysis();
+	  const areaMeasurementAnalysis = createAreaMeasurementAnalysis();
+	  const sliceAnalysis = createSliceAnalysis();
+	  const lineOfSightAnalysis = createLineOfSightAnalysis();
+
+	  // Wait for the view to load before adding analysis objects
+	  await reactiveUtils.whenOnce(() => !view.updating);
+
+	  // Add analysis object to the view to show them
+	  view.analyses.addMany([
+		directLineMeasurementAnalysis,
+		areaMeasurementAnalysis,
+		sliceAnalysis,
+		lineOfSightAnalysis
+	  ]);
+
+	  // Configure buttons to interact with the analysis objects
+	  const areaMeasurementAnalysisButton = setupAnalysisButton(
+		"areaMeasurementAnalysisButton",
+		() => new AreaMeasurement3D({ view, analysis: areaMeasurementAnalysis })
+	  );
+
+	  const directLineMeasurementAnalysisButton = setupAnalysisButton(
+		"directLineMeasurementAnalysisButton",
+		() => new DirectLineMeasurement3D({ view, analysis: directLineMeasurementAnalysis })
+	  );
+
+	  const lineOfSightAnalysisButton = setupAnalysisButton(
+		"lineOfSightAnalysisButton",
+		() => new LineOfSight({ view, analysis: lineOfSightAnalysis })
+	  );
+
+	  const sliceAnalysisButton = setupAnalysisButton(
+		"sliceAnalysisButton",
+		() => new Slice({ view, analysis: sliceAnalysis })
+	  );
+
+	  // Remove button is a bit special
+	  document.getElementById("removeWidgetButton").addEventListener("click", () => {
+		removeActiveWidget();
+	  });
+
+	  function setupAnalysisButton(elementId, widgetFactotry) {
+		const button = document.getElementById(elementId);
+
+		button.addEventListener("click", () => {
+		  // remove current widget (if any)
+		  removeActiveWidget();
+
+		  // install a suitable widget in the `analysisWidget` variable
+		  analysisWidget = widgetFactotry();
+
+		  // highlight this button as the currently active one and add the remove widget button
+		  button.appearance = "outline";
+		  document.getElementById("removeWidgetButton").style.display = "block";
+
+		  // show the analysisWidget in the lower right corner
+		  view.ui.add(analysisWidget, "bottom-right");
+		});
+		return button;
+	  }
+
+	  function removeActiveWidget() {
+		// remove the analysisWidget if one exists
+		if (analysisWidget) {
+		  analysisWidget.destroy();
+		  analysisWidget = null;
+		}
+
+		// hide remove button
+		document.getElementById("removeWidgetButton").style.display = "none";
+
+		// reset appearance of the analysis buttons
+		areaMeasurementAnalysisButton.appearance = "solid";
+		directLineMeasurementAnalysisButton.appearance = "solid";
+		lineOfSightAnalysisButton.appearance = "solid";
+		sliceAnalysisButton.appearance = "solid";
+	  }
+	});
+
+	function createDirectLineMeasurementAnalysis() {
+	  return new DirectLineMeasurementAnalysis({
+		startPoint: newPoint(-8238827, 4971466, 3),
+		endPoint: newPoint(-8238819, 4971537, 3)
+	  });
+	}
+
+	function createAreaMeasurementAnalysis() {
+	  const roofPolygon = new Polygon({
+		rings: [
+		  [
+			[-8238931, 4971381, 50],
+			[-8238926, 4971426, 50],
+			[-8238835, 4971415, 50],
+			[-8238841, 4971369, 50],
+			[-8238931, 4971381, 50]
+		  ]
+		],
+		spatialReference: SpatialReference.WebMercator
+	  });
+
+	  return new AreaMeasurementAnalysis({
+		geometry: roofPolygon
+	  });
+	}
+
+	function createSliceAnalysis() {
+	  return new SliceAnalysis({
+		shape: {
+		  position: newPoint(-8238840, 4971700, 21),
+		  tilt: 0,
+		  width: 70,
+		  height: 100,
+		  heading: 278
+		}
+	  });
+	}
+
+	function createLineOfSightAnalysis() {
+	  return new LineOfSightAnalysis({
+		observer: { position: newPoint(-8238825, 4971538, 48) },
+		targets: [
+		  { position: newPoint(-8238903, 4971649, 2) },
+		  { position: newPoint(-8238866, 4971629, 19) },
+		  { position: newPoint(-8238825, 4971880, 2) },
+		  { position: newPoint(-8238791, 4971784, 2) }
+		]
+	  });
+	}
+
+	function newPoint(x, y, z) {
+	  // convenience function to have all points in the same spatial reference
+	  return new Point({ x, y, z, spatialReference: SpatialReference.WebMercator });
+	}
+	
+	fctZoomRow = function zoomRow(layerId, FieldId, val) {
+		var sqlStatement = FieldId +"=" + val;
+		zoomSql2(layerId, sqlStatement) 
+	}	
+	
+	function zoomSql1(layerId, sqlStatement) { //not working
+		let query = myLayers[layerId].createQuery();
+		query.where = sqlStatement;
+		query.outFields = ["ObjectID", "*****", "***", "****"];
+		//query.spatialRelationship = Query.SPATIAL_REL_ENVELOPEINTERSECTS;
+		query.returnGeometry = true;
+		//query.geometry = myMap.extent;   //Don't do this line
+
+		/*myLayers[layerId].featureLayer.queryFeatures(query)
+		  .then(function(response){
+			 // returns a feature set with features containing the following attributes
+			 // STATE_NAME, COUNTY_NAME, POPULATION, POP_DENSITY
+		   });*/
+			   
+		myLayers[layerId].selectFeatures(query, esri.layers.FeatureLayer.SELECTION_NEW, function(features) {
+			var stateExtent = features[0].geometry.getExtent().expand(5.0);
+			myMap.setExtent(stateExtent);
+		});
+
+	}
+
+	function zoomSql2(layerId, sqlStatement) {
+		//alert("val = " + val);
+
+		let query = myLayers[layerId].createQuery();
+		query.where = sqlStatement;
+		query.outFields = ["ObjectID"];
+		myLayers[layerId].queryFeatures(query)
+		  .then(function(response){
+				console.log(response.geometry);
+				sqlResults =  response;
+				var stateExtent = sqlResults.features[0].geometry.extent.expand(5.0);
+				//view.map.setExtent(stateExtent);
+				view.goTo(stateExtent);
+		   });	   
+	}
+	
+	function zoomSql3(layerId, sqlStatement) { //not working
+		  Query.executeQueryJSON( myLayers[layerId].url, {  
+			 where: sqlStatement
+		  }).then(function(results){
+			// results is a FeatureSet containing an array of graphic features
+			
+			console.log(results.graphics);			
+			var stateExtent = results.graphics[0].geometry.getExtent().expand(5.0);
+			view.map.setExtent(stateExtent);
+		  }, function(error){
+			   console.log(error); // will print error in console, if any
+			 
+		});
+	}
+
+	
+	//fctZoomRow(0, 'OBJECTID', 1);
+	
+  });
+//}
+
+var sqlResults;
+
+//zoomRow(0, "OBJECTID", 1)
+/*function zoomRow(layerId, FieldId, val) {
+	//alert("val = " + val);
+
+	var query = new esri.tasks.Query();
+	query.where = FieldId +"=" + val;
+	//query.geometry = myMap.extent;   //Don't do this line
+	query.spatialRelationship = Query.SPATIAL_REL_ENVELOPEINTERSECTS;
+	query.returnGeometry = true;
+
+	query.outFields = ["ObjectID", "*****", "***", "****"];
+	//featureLayer.selectFeatures(query,esri.layers.FeatureLayer.SELECTION_NEW);
+
+	myLayers[layerId].selectFeatures(query, esri.layers.FeatureLayer.SELECTION_NEW, function(features) {
+		var stateExtent = features[0].geometry.getExtent().expand(5.0);
+		view.map.setExtent(stateExtent);
+	});
+}*/
+
+function zoomRow2(layerId, FieldId, val) {
+  //alert("val = " + val);
+
+	let query = myLayers[layerId].createQuery();
+	query.where = FieldId +"=" + val;
+	query.outFields = ["ObjectID", "*****", "***", "****"];
+	//query.spatialRelationship = Query.SPATIAL_REL_ENVELOPEINTERSECTS;
+	query.returnGeometry = true;
+    //query.geometry = myMap.extent;   //Don't do this line
+
+	/*myLayers[layerId].featureLayer.queryFeatures(query)
+	  .then(function(response){
+		 // returns a feature set with features containing the following attributes
+		 // STATE_NAME, COUNTY_NAME, POPULATION, POP_DENSITY
+	   });*/
+	   	   
+	myLayers[layerId].selectFeatures(query, esri.layers.FeatureLayer.SELECTION_NEW, function(features) {
+		var stateExtent = features[0].geometry.getExtent().expand(5.0);
+		myMap.setExtent(stateExtent);
+	});
+
+}
+
+</script>	
+
+
+</head>
+<body class="fixed-sn mdb-skin">
+
+<!--Double navigation-->
+<header>
+  <!-- Sidebar navigation -->
+  <div id="slide-out" class="side-nav sn-bg-5 fixed wide" >  <!--"fixed" sn-bg-1  removed! wide red darken-4-->   
+      <ul class="custom-scrollbar">
+	<ul class="custom-scrollbar">
+	  <!-- Logo -->
+	  <li>
+		<div class="logo-wrapper waves-light"  style="height:150px">
+		  <a href="#"><img src="img/CBRE3.webp" class="img-fluid " style="padding: 0px 0px 0px 0px; width:100%; "></a>
+		</div>
+	  </li>
+	  <!--/. Logo -->
+	  <!--Search Form-->
+	  <li>
+		<form class="search-form" role="search">
+		  <div class="form-group md-form mt-0 pt-1 waves-light">
+			<input type="text" class="form-control" placeholder="Search">
+		  </div>
+		</form>
+	  </li>
+	  <!--/.Search Form-->
+	  <!-- Side navigation links -->
+	  <li>
+		<ul class="collapsible collapsible-accordion">
+		  <li><a class="collapsible-header waves-effect arrow-r">
+			<i class="fas fa-chevron-right"></i>Explore portfolio<i class="fas fa-angle-down rotate-icon"></i></a>
+			<div class="collapsible-body">
+			  <ul class="list-unstyled">
+				<li><a href="#" class="waves-effect">Search by builing</a></li>
+				<li><a href="#" class="waves-effect">Saerch by space</a></li>
+				<li><a href="#" class="waves-effect">Saerch by lease</a></li>
+			  </ul>
+			</div>
+		  </li>
+		  <li><a class="collapsible-header waves-effect arrow-r">
+			<i class="fas fa-hand-pointer"></i> Shortlists<i class="fas fa-angle-down rotate-icon"></i></a>
+			<div class="collapsible-body">
+			  <ul class="list-unstyled">
+				<li><a href="#" class="waves-effect">My shortlists</a>
+				</li>
+				<li><a href="#" class="waves-effect">Shared with me</a>
+				</li>
+			  </ul>
+			</div>
+		  </li>
+		  <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-eye"></i> My data<i class="fas fa-angle-down rotate-icon"></i></a>
+			<div class="collapsible-body">
+			  <ul class="list-unstyled">
+				<li><a href="#" class="waves-effect">Manage my profile</a></li>
+				<li><a href="#" class="waves-effect">Manage my shortlists</a></li>
+				<li><a href="#" class="waves-effect">Manage Reports</a></li>
+				<li><a href="#" class="waves-effect">Manage Transactions</a></li>							
+			  </ul>
+			</div>
+		  </li>
+		  <li><a class="collapsible-header waves-effect arrow-r"><i class="far fa-envelope"></i> Administration<i class="fas fa-angle-down rotate-icon"></i></a>
+			<div class="collapsible-body">
+			  <ul class="list-unstyled">
+
+				<li><a href="#" class="waves-effect">Load CSV data</a></li>
+				<li><a href="#" class="waves-effect">Update travel time</a></li>
+				<li><a href="#" class="waves-effect">Manage floors</a></li>
+				<li><a href="#" class="waves-effect">User Activity</a></li>
+				<li><a href="#" class="waves-effect">System Metrics</a></li>
+				
+			  </ul>
+			</div>
+		  </li>
+		</ul>
+	  </li>
+	  <!--/. Side navigation links -->
+	</ul>
+	<div class="sidenav-bg mask-strong"></div>
+  </div>
+  <!--/. Sidebar navigation -->
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav text-center nav_cust" >
+	<!-- SideNav slide-out button -->
+	<div class="float-left">
+	  <a  id="btnMenuSlide" href="#" data-activates="slide-out" class="button-collapse" ><i class="fas fa-bars"></i></a>
+	</div>
+	
+	  <H4 ><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Property Explorer and Mangement System</B></h4>
+	
+	<!-- Breadcrumb-->
+
+	<ul class="nav navbar-nav nav-flex-icons ml-auto">
+	  <!--li class="nav-item">
+		<a class="nav-link"><i class="fas fa-envelope"></i> <span class="clearfix d-none d-sm-inline-block">Contact</span></a>
+	  </li>
+	  <li class="nav-item">
+		<a class="nav-link"><i class="fas fa-comments"></i> <span class="clearfix d-none d-sm-inline-block">Support</span></a>
+	  </li-->
+	  <li class="nav-item">
+		<br><br>
+		<a class="nav-link"><i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Cristian</span></a>
+	  </li>
+	  <li class="nav-item dropdown">
+	  <br><br>
+		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+		  aria-haspopup="true" aria-expanded="false"> Admin</a>
+		<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+		  <a class="dropdown-item" href="#">Log out</a>
+		  <a class="dropdown-item" href="#">Manage account</a>
+		  <a class="dropdown-item" href="#">Audit</a>
+		</div>
+	  </li>
+	</ul>
+  </nav>
+  <!-- /.Navbar -->
+</header>
+<!--/.Double navigation-->
+
+<!--Main layout-->
+<div style="height:90px"></div>
+
+<div class="row">
+	<div class="col-md-6" style=" padding-right: 0px;">
+	
+	
+	
+	<!-- Classic tabs -->
+	<div class="classic-tabs mx-2">
+
+	  <ul class="nav tabs-primary" id="myClassicTabShadow" role="tablist">
+		<li class="nav-item" style="margin-left: 0px;">
+		  <a class="nav-link  waves-light show" id="building-tab-classic-shadow" data-toggle="tab" href="#building-classic-shadow"
+			role="tab" aria-controls="building-classic-shadow" aria-selected="true">Search Buildings</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link waves-light" id="Spaces-tab-classic-shadow" data-toggle="tab" href="#Spaces-classic-shadow"
+			role="tab" aria-controls="Spaces-classic-shadow" aria-selected="false">Available Spaces</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link waves-light" id="Results-tab-classic-shadow" data-toggle="tab" href="#Results-classic-shadow"
+			role="tab" aria-controls="Results-classic-shadow" aria-selected="false">Results</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link waves-light  active show " id="Details-tab-classic" data-toggle="tab" href="#Details-classic" role="tab"
+			aria-controls="Details-classic" aria-selected="false">Details</a>
+		</li>
+	  </ul>
+
+	  <div class="tab-content card" id="myClassicTabContentShadow" style="padding: 5px 10px 5px 10px ;">
+		<div class="tab-pane fade  " id="building-classic-shadow" role="tabpanel" aria-labelledby="building-tab-classic-shadow">
+			
+
+			<div class="card card-cascade narrower" style="padding: 0px 10px 0px 10px; display:block" id="cdSearchBuild">
+				<div class="form-row md-form">
+					<div class="col-md-12">	
+					
+						<select class="mdb-select " multiple searchable="Search building..">
+						  <option value="" data-icon="https://lh5.googleusercontent.com/p/AF1QipNQfHpySFNIgpNLVuGIoSTHVCfppQA6a5cuaUzS=w408-h544-k-no" class="rounded-circle">ALICE@MEDIAPOLIS</option>
+						  <option value="" data-icon="https://lh5.googleusercontent.com/p/AF1QipPBtSgAuor0LaV6XUc9goWBacsJH35h5aApKw85=w408-h306-k-no" class="rounded-circle">The Strategy @ IBP</option>
+						  <option value="" data-icon="https://lh5.googleusercontent.com/p/AF1QipO1geriq79aQ-pHpB5FKpZgUqptQozP_Y7nWM_F=w408-h579-k-no" class="rounded-circle">The Synergy @ IBP</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">16 Collyer Quay</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">111 Somerset</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Asia Square</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">AXA Tower</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Bank of China Building</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">CapitaGreen</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Capital Tower</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Centennial Tower</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Chevron House</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Comcentre</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">The Concourse</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">CPF Building</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">DUO</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Fuji Xerox Towers</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">The Gateway</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Golden Mile Complex</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Guoco Tower</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Hong Leong Building</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">International Plaza</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Lippo Centre</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Marina Bay Financial Centre</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Marina One</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Maybank Tower</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Millenia Tower</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">MTower</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Ngee Ann City</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">OCBC Centre</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Ocean Financial Centre</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">One George Street</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">One Marina Boulevard</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">One Raffles Place</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">One Raffles Quay</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">OUE Downtown</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Parkview Square</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">People's Park Complex</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Pickering Operations Complex</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">The Plaza</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Police Cantonment Complex</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Raffles City Tower</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Republic Plaza</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Robinson 77</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Samsung Hub (building)</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">SGX Centre</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Singapore Land Tower</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Six Battery Road</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Springleaf Tower</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">Suntec City</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">UIC Building</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">UOB Plaza</option>
+						  <option value="" data-icon="https://officefinder.com.sg/wp-content/uploads/2017/08/79-Anson-3.jpg" class="rounded-circle">V on Shenton</option>
+						  
+						  
+						</select>
+						<label class="mdb-main-label">Search building</label>
+					</div>
+					
+					<div class="col-md-12 spacer_10">	
+						<input type="text" class="form-control " id="inputAddressMD" >
+						<label for="inputAddressMD">Find address or place...</label>
+					</div><BR>
+					
+					<div class="col-md-6 spacer_5">
+						<select class="mdb-select colorful-select dropdown-primary">
+						  <option value="" >Available</option>
+						  <option value="" >Ocupied</option>
+						</select>
+						<label class="mdb-main-label">Space Status</label>
+					</div>
+					<div class="col-md-6 spacer_5">
+						<select class="mdb-select colorful-select dropdown-primary">
+							<option value="Residential" >Residential</option>
+							<option value="Commercial" >Commercial</option>
+							<option value="Industrial" >Industrial</option>
+							<option value="Retail" >Retail</option>
+							<option value="Office" >Office</option>
+							<option value="Hospitality" >Hospitality</option>
+							<option value="Mixed_use" >Mixed_use</option>
+							<option value="Specia_purpose" >Special purpose</option>
+							<option value="Agricultural" >Agricultural</option>
+							<option value="" >ALICE</option>
+						</select>
+						<label class="mdb-main-label">Asset Class</label>
+					</div><!-- column -->				
+
+					<div class="col-md-6 spacer_5">
+						<select class="mdb-select colorful-select dropdown-primary">
+						  <option value="Central" >Central</option>
+						  <option value="East" >East</option>
+						  <option value="North" >North</option>
+						  <option value="North_East" >North East</option>
+						  <option value="" >West</option>
+						</select>
+						<label class="mdb-main-label">Region</label>
+					</div>
+					<div class="col-md-6 spacer_5">
+					  <select class="mdb-select colorful-select dropdown-primary">
+						  <option value="CBD" >Central Business District</option>
+						  <option value="Orchard_Road" >Orchard Road</option>
+						  <option value="Marina Bay" >Marina Bay</option>
+						  <option value="Bugis" >Bugis</option>
+						  <option value="Clarke Quay" >Clarke Quay</option>
+						  <option value="Sentosa Cove" >Sentosa Cove</option>
+						  <option value="Holland Village" >Holland Village</option>
+						  <option value="Tiong Bahru" >Tiong Bahru</option>
+						  <option value="Bukit Timah" >Bukit Timah</option>
+						  <option value="Tanjong Pagar" >Tanjong Pagar</option>
+						</select>
+						
+						<label class="mdb-main-label">Micromarket</label>
+					</div><!-- column -->				
+
+					<div class="col-md-6 spacer_5">
+						<select class="mdb-select colorful-select dropdown-primary">
+						  <option value="Residential" >Residential</option>
+						  <option value="Commercial" >Commercial</option>
+						  <option value="Business 1" >Business 1</option>
+						  <option value="Business_1" >Business 2</option>
+						  <option value="Industrial" >Industrial</option>
+						  <option value="White" >White</option>
+						  <option value="Business parks" >Business parks</option>
+						  <option value="Open space" >Open space</option>
+						  <option value="Special use" >Special use</option>
+						</select>
+						<label class="mdb-main-label">Zoning</label>
+					</div>
+					<div class="col-md-6 spacer_5">
+					  <select class="mdb-select colorful-select dropdown-primary">
+						  <option value="" >Mixed_use</option>
+						  <option value="" >Special use</option>
+						  <option value="" >Agricultural</option>
+						</select>
+						<label class="mdb-main-label">Usage</label>
+					</div><!-- column -->				
+
+					<div class="col-md-6  spacer_5">
+						<input type="number" id="numberExample" class="form-control" placeholder="minimum...">
+						<label for="numberExample">Area</label>
+
+					</div>
+					<div class="col-md-6  spacer_5">
+					  <input type="number" id="numberExample" class="form-control" placeholder="maximim...">
+					</div><!-- column -->				
+			
+					<div class="col-md-6 spacer_5 ">
+						<input type="number" id="numberExample" class="form-control" placeholder="minimum...">
+						<label for="numberExample">Rent</label>
+
+					</div>
+					<div class="col-md-6  spacer_5">
+					  <input type="number" id="numberExample" class="form-control " placeholder="minimum...">
+					</div><!-- column -->				
+
+					<div class="col-md-6" spacer_5 >
+					  <input type="text" id="date-picker-example" class="form-control datepicker"  placeholder="from...">
+					  <label for="date-picker-example">Available</label>
+
+					</div>
+					<div class="col-md-6  spacer_5">
+					  <input type="text" id="date-picker-example" class="form-control datepicker"  placeholder="until...">
+					</div><!-- column -->				
+					<button type="submit" class="btn btn-primary btn-md float-right " onclick="toggleSearch(true)">Advanced</button>
+					<button type="submit" class="btn btn-primary btn-md float-right " 
+						onclick="document.getElementById('Results-tab-classic-shadow').click();">Search</button>
+					
+
+				</div> <!-- row -->
+			</div><!-- card -->
+			<div class="card card-cascade narrower" style="padding: 0px 10px 0px 10px; display:none;" id="cdSearchAdv">
+				<button type="button" class="btn btn-outline-success btn-rounded waves-effect btn-sm" onclick="addNestedItem('AND');">AND</button>
+				<button type="button" class="btn btn-outline-primary btn-rounded waves-effect btn-sm" onclick="addNestedItem('OR');">OR</button>
+				<div class="form-row ">
+				
+					
+					<div class="col-md-5 ">	
+						<select class="mdb-select md-form" searchable="Search here.." id="selNestField">
+						  <option value="" disabled selected>Choose field ...</option>
+					      <option value="Name" >Name</option>
+						  <option value="Grade" >Grade</option>
+						  <option value="Country" >Country</option>
+						  <option value="PostalCode" >Postal Code</option>
+						  <option value="Street_no" >Street no</option>
+						  <option value="Street" >Street</option>
+						  <option value="Address" >Address</option>
+						  <option value="Property_type" >Property type</option>
+						  <option value="Region" >Region</option>
+						  <option value="Micromarket" >Micromarket</option>
+						  <option value="Zoning" >Zoning</option>
+						  <option value="Property_Usage" >Property Usage</option>
+						  <option value="LandOwnership" >Land Ownership</option>
+						  <option value="OwnershipStructure_Title" >Ownership Structure Title</option>
+						  <option value="PropertyStatus" >Property Status</option>
+						  <option value="TOPDate" >TOP Date</option>
+						  <option value="GrossFloorArea" >Gross Floor Area</option>
+						  <option value="LandArea" >Land Area</option>
+						  <option value="NetLettableArea" >Net Lettable Area</option>
+						  <option value="AreaBreakdown" >Area Breakdown</option>
+						  <option value="Headline" >Headline</option>
+						  <option value="LocationDescription" >Location Description</option>
+						  <option value="BuildingDescription" >Building Description</option>
+						  <option value="BelowGround" >Below Ground</option>
+						  <option value="AboveGround" >Above Ground</option>
+						  <option value="TotalFloors" >Total Floors</option>
+						  <option value="Tenant" >Tenant</option>
+						  <option value="WithinComplex" >Within Complex</option>
+						  <option value="WithinProximity" >Within Proximity</option>
+						  <option value="Public" >Public</option>
+						  <option value="Private" >Private</option>
+						  <option value="NoofPassengerLift" >No of Passenger Lifts</option>
+						  <option value="CarParkLifttoG_F" >Car Park Lift to Ground Floor</option>
+						  <option value="ServiceLift" >Service Lift</option>
+						  <option value="CargoLift" >Cargo Lift</option>
+						  <option value="NoofLiftZone" >No of Lift Zones</option>
+						  <option value="CarParkLots" >Car Park Lots</option>
+						  <option value="AllocationRatio" >Allocation Ratio</option>
+						  <option value="UOM_AllocationRatio" >UOM Allocation Ratio</option>
+						  <option value="ParkingDetails" >Parking Details</option>
+						  <option value="Seasonal" >Seasonal</option>
+						  <option value="Non_Reserved" >Non Reserved</option>
+						  <option value="MRT1" >MRT1</option>
+						  <option value="MRT1CoveredAccess" >MRT1 Covered Access</option>
+						  <option value="MRT1Walk_Drive" >MRT1 Walk Drive</option>
+						  <option value="MRT1Time_Mins" >MRT1 Time Mins</option>
+						  <option value="MRT2" >MRT2</option>
+						  <option value="MRT2CoveredAccess" >MRT2CoveredAccess</option>
+						  <option value="MRT2Walk_Drive" >MRT2Walk_Drive</option>
+						  <option value="MRT2Time_Mins_" >MRT2Time_Mins_</option>
+						  <option value="MRT3" >MRT3</option>
+						  <option value="MRT3CoveredAccess" >MRT3CoveredAccess</option>
+						  <option value="MRT3Walk_Drive" >MRT3Walk_Drive</option>
+						  <option value="MRT3Time_Mins" >MRT3Time_Mins</option>
+						  <option value="Bus" >Bus</option>
+						  <option value="Others" >Others</option>
+						  <option value="FloorToCeilingHeight_From" >FloorToCeilingHeight_From</option>
+						  <option value="FloorToCeilingHeight_To" >FloorToCeilingHeight_To</option>
+						  <option value="FloorLoadingRange_From" >FloorLoadingRange_From</option>
+						  <option value="FloorLoadingRange_To" >FloorLoadingRange_To</option>
+						  <option value="CeilingGrid_FloorLoadingDetails" >CeilingGrid_FloorLoadingDetails</option>
+						  <option value="FloorSystem" >FloorSystem</option>
+						  <option value="PowerSystem" >PowerSystem</option>
+						  <option value="NoOfOfficeFloors" >NoOfOfficeFloors</option>
+						  <option value="TypicalMinimumFloorSize" >TypicalMinimumFloorSize</option>
+						  <option value="MaximumFloorSize_SqFt" >MaximumFloorSize_SqFt</option>
+						  <option value="UltraHigh_TopFloor" >UltraHigh_TopFloor</option>
+						  <option value="High_TopFloor" >High_TopFloor</option>
+						  <option value="Mid_TopFloor" >Mid_TopFloor</option>
+						  <option value="Low_TopFloor" >Low_TopFloor</option>
+						  <option value="TypeOfUse" >TypeOfUse</option>
+						  <option value="NoOfLoadingBays" >NoOfLoadingBays</option>
+						  <option value="AccessibleFor" >AccessibleFor</option>
+						  <option value="Loading_UnloadingBay" >Loading_UnloadingBay</option>
+						  <option value="NoOfCranes" >NoOfCranes</option>
+						  <option value="OtherDetails" >OtherDetails</option>
+						  <option value="NoOfRetailFloors" >NoOfRetailFloors</option>
+						  <option value="Kind" >Kind</option>
+						  <option value="AccountName" >AccountName</option>
+						  <option value="Industry" >Industry</option>
+						  <option value="Created_at" >Created_at</option>
+						  <option value="Updated_at" >Updated_at</option>				  
+						</select>
+						<label class="mdb-main-label">Field</label>
+
+					</div>					
+					<div class="col-md-3 ">
+						<select class="mdb-select md-form colorful-select dropdown-primary "  id="selNestOper">
+						  <option value="=" >Equals</option>
+						  <option value="LIKE" >Contains</option>
+						  <option value="&lt;" >&lt;</option>
+						  <option value="&gt;" >&gt;</option>
+						  <option value="Is NULL" >IS NULL</option>
+						  <option value="IS NOT NULL" >IS NOT NULL</option>
+
+						</select>
+						<label class="mdb-main-label">operator</label>
+					</div>
+					<div class="col-md-3  md-form">
+						<input type="text" class="form-control " id="inNestValue" > 
+						<label for="inNestValue">Value <label>	
+					</div><!-- column -->			
+         
+            
+
+					
+					<div class="col-md-1" style="align-items: center;">	<BR>
+						<img src="http://localhost:8080/ECP_designer/img/add_blue.png" id="appendnestable" onclick="addNestedItemVal();">
+					</div>
+
+				</div> <!-- row -->
+
+
+				<menu id="nestable-menu">							
+					<!--input id="menuText" value="" class="input-xlarge"-->								
+					
+				</menu>
+				<div class="dd" id="nestable3">
+					<ol class="dd-list outer">
+						<li class="dd-item dd3-item" data-id="1" id="nestItem1">
+							<div class="dd-handle dd3-handle"></div>
+							<div class="dd3-content">name LIKE 'IBP' <img src="http://localhost:8080/ECP_designer/img/delGray.gif" onClick="removeNestedItem('nestItem1')"></div>
+						</li>
+						<li class="dd-item dd3-item" data-id="2" id="nestItem2">
+							<div class="dd-handle dd3-handle"></div>
+							<div class="dd3-content nestOpAnd ">AND<img src="http://localhost:8080/ECP_designer/img/delGray.gif" onClick="removeNestedItem('nestItem2')"></div>
+							<ol class="dd-list">
+								<li class="dd-item dd3-item" data-id="3" id="nestItem3">
+									<div class="dd-handle dd3-handle"></div>
+									<div class="dd3-content">Date &lt; '28/02/2021' <img src="http://localhost:8080/ECP_designer/img/delGray.gif" onClick="removeNestedItem('nestItem3')"> </div>
+								</li>
+								<li class="dd-item dd3-item" data-id="4" id="nestItem4">
+									<div class="dd-handle dd3-handle"></div>
+									<div class="dd3-content">Date &gt; '31/01/2022' <img src="http://localhost:8080/ECP_designer/img/delGray.gif" onClick="removeNestedItem('nestItem4')"></div>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</div>
+				<div>	
+					<button type="submit" class="btn btn-primary btn-md float-right " 
+						onclick="document.getElementById('Results-tab-classic-shadow').click();">Search</button>	
+					<button type="submit" class="btn btn-primary btn-md float-right " onclick="validateAdv(false)">Validate</button>
+					<button type="submit" class="btn btn-primary btn-md float-right " onclick="toggleSearch(false)">Standard</button>
+				</div>
+
+			</div><!-- card -->
+			
+	
+		</div>	<!-- tab pane -->	
+
+		<div class="tab-pane fade" id="Spaces-classic-shadow" role="tabpanel" aria-labelledby="Spaces-tab-classic-shadow">
+		
+
+			<div class="btn-group  " data-toggle="buttons">
+			  <label class="btn btn-light-blue  btn-sm form-check-label active">
+				<input class="form-check-input" type="radio" name="options" id="option1" autocomplete="off" checked>Lease</label>
+			  <label class="btn btn-light-blue  btn-sm form-check-label">
+				<input class="form-check-input" type="radio" name="options" id="option2" autocomplete="off"> Sales</label>
+			</div>
+			<div class="btn-group  " data-toggle="buttons">
+			  <label class="btn btn-light-blue  btn-sm form-check-label active">
+				<input class="form-check-input" type="radio" name="options" id="option1" autocomplete="off" checked>CBRE Deal</label>
+			  <label class="btn btn-light-blue  btn-sm form-check-label">
+				<input class="form-check-input" type="radio" name="options" id="option2" autocomplete="off">3rd Party deal</label>
+			</div>
+			
+			<div class="form-row md-form">
+				
+				<div class="col-md-6 spacer_5">
+					<select class="mdb-select colorful-select dropdown-primary">
+						<option value="Residential" >Residential</option>
+						<option value="Commercial" >Commercial</option>
+						<option value="Industrial" >Industrial</option>
+						<option value="Retail" >Retail</option>
+						<option value="Office" >Office</option>
+						<option value="Hospitality" >Hospitality</option>
+						<option value="Mixed_use" >Mixed_use</option>
+						<option value="Specia_purpose" >Special purpose</option>
+						<option value="Agricultural" >Agricultural</option>
+						<option value="" >ALICE</option>
+					</select>
+					<label class="mdb-main-label">Asset Class</label>
+				</div><!-- column -->				
+
+				<div class="col-md-6 spacer_5">
+					<select class="mdb-select colorful-select dropdown-primary">
+					  <option value="Central" >Central</option>
+					  <option value="East" >East</option>
+					  <option value="North" >North</option>
+					  <option value="North_East" >North East</option>
+					  <option value="" >West</option>
+					</select>
+					<label class="mdb-main-label">Region</label>
+				</div><!-- column -->				
+		 
+
+				<div class="col-md-6  spacer_5">
+					<input type="number" id="numberExample" class="form-control" placeholder="minimum...">
+					<label for="numberExample">Area</label>
+
+				</div>
+				<div class="col-md-6  spacer_5">
+				  <input type="number" id="numberExample" class="form-control" placeholder="maximim...">
+				</div><!-- column -->	
+
+				<div class="col-md-6" spacer_5 >
+				  <input type="text" id="date-picker-example" class="form-control datepicker"  placeholder="from...">
+				  <label for="date-picker-example">Available</label>
+
+				</div>
+				<div class="col-md-6  spacer_5">
+				  <input type="text" id="date-picker-example" class="form-control datepicker"  placeholder="until...">
+				</div><!-- column -->				
+			 		 
+				<button type="submit" class="btn btn-primary btn-md float-right" onclick="document.getElementById('Results-tab-classic-shadow').click();">Search</button>
+
+			</div> <!-- row -->
+		</div><!-- tab pane -->	
+		<div class="tab-pane fade " id="Results-classic-shadow" role="tabpanel" aria-labelledby="Results-tab-classic-shadow">
+
+
+
+<!-- Table with panel -->
+<div class="card card-cascade narrower">
+
+  <!--Card image-->
+  <div
+    class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+    <div>
+      <button type="button" title="View propoerties details" class="btn btn-outline-white btn-rounded btn-sm px-2">
+        <i class="fas fa-th-large mt-0"></i>
+      </button>
+      <button type="button"  title="Select records on map" class="btn btn-outline-white btn-rounded btn-sm px-2">
+        <i class="fas fa-columns mt-0"></i>
+      </button>
+    </div>
+
+    <a href="" class="white-text mx-3">Buildings</a>
+
+    <div>
+      <button type="button" title="Edit first selected record" class="btn btn-outline-white btn-rounded btn-sm px-2">
+        <i class="fas fa-pencil-alt mt-0"></i>
+      </button>
+      <button type="button"  title="Delete selected records" class="btn btn-outline-white btn-rounded btn-sm px-2">
+        <i class="far fa-trash-alt mt-0"></i>
+      </button>
+      <button type="button" title="View selected records" class="btn btn-outline-white btn-rounded btn-sm px-2" onClick="document.getElementById('btnMenuSlide').click();">
+        <i class="fas fa-info-circle mt-0"></i>
+      </button>
+    </div>
+
+  </div>
+  <!--/Card image-->
+
+<div class="card card-cascade narrower">
+
+
+	  <div class="px-4">
+
+		<div class="table-wrapper">
+		  <!--Table-->
+
+		<table id="dtBasicExample2" class="table table-sm  table-striped table-hover mb-0" cellspacing="0" width="100%">
+
+			<!--Table head-->
+			<thead>
+			  <tr >
+				<th class="th-sm">
+				  <!--input class="form-check-input" type="checkbox" id="checkbox"-->
+				  <input class="form-check-input" type="checkbox" id="checkbox">
+				  <label class="form-check-label" for="checkbox" class="mr-2 label-table"></label>
+				</th>
+				<th class="th-sm">
+				  <a>First Name<i class="fas fa-sort ml-1"></i></a>
+				</th>
+				<th class="th-sm">
+				  <a href="">Last Name<i class="fas fa-sort ml-1"></i></a>
+				</th>
+				<th class="th-sm">
+				  <a href="">Username<i class="fas fa-sort ml-1"></i></a>
+				</th>
+				<th class="th-sm">
+				  <a href="">Username<i class="fas fa-sort ml-1"></i></a>
+				</th>
+				<th class="th-sm">
+				  <a href="">Username<i class="fas fa-sort ml-1"></i></a>
+				</th>
+				<th class="th-sm">
+				  <a href="">Username<i class="fas fa-sort ml-1"></i></a>
+				</th>
+			  </tr>
+			</thead>
+			<!--Table head-->
+
+			<!--Table body style="border-bottom:2px solid #dee2e6"-->
+			<tbody style="padding-bottom: 0px; padding-top: 0px;">
+			  <tr >
+				<td  class="td_slim" scope="row"  style="padding-bottom: 0px; padding-top: 0px;">
+				  <input class="form-check-input" type="checkbox" id="checkbox1">
+				  <label class="form-check-label" for="checkbox1" class="label-table"></label>
+				</td>
+				<td class="td_slim">Mark</td>
+				<td class="td_slim"> "Otto</td>
+				<td class="td_slim">@mdo</td>
+				<td class="td_slim">Mark</td>
+				<td class="td_slim">Otto</td>
+				<td class="td_slim">@mdo</td>
+			  </tr>
+			  <tr>
+				<td  class="td_slim" scope="row">
+				  <input class="form-check-input" type="checkbox" id="checkbox2">
+				  <label class="form-check-label" for="checkbox2" class="label-table"></label>
+				</td>
+				<td class="td_slim">Jacob</td>
+				<td class="td_slim">Thornton</td>
+				<td class="td_slim">@fat</td>
+				<td class="td_slim">Jacob</td>
+				<td class="td_slim">Thornton</td>
+				<td class="td_slim">@fat</td>
+			  </tr>
+			  <tr>
+				<td  class="td_slim"  scope="row">
+				  <input class="form-check-input" type="checkbox" id="checkbox3">
+				  <label class="form-check-label" for="checkbox3" class="label-table"></label>
+				</td>
+				<td class="td_slim">Larry</td>
+				<td class="td_slim">the Bird</td>
+				<td class="td_slim">@twitter</td>
+				<td class="td_slim">Larry</td>
+				<td class="td_slim">the Bird</td>
+				<td class="td_slim">@twitter</td>
+			  </tr>
+			  <tr>
+				<td  class="td_slim" scope="row">
+				  <input class="form-check-input" type="checkbox" id="checkbox4">
+				  <label class="form-check-label" for="checkbox4" class="label-table"></label>
+				</td>
+				<td class="td_slim">Paul</td>
+				<td class="td_slim">Topolski</td>
+				<td class="td_slim">@P_Topolski</td>
+				<td class="td_slim">Paul</td>
+				<td class="td_slim">Topolski</td>
+				<td class="td_slim">@P_Topolski</td>
+			  </tr>
+			  <tr>
+				<td  class="td_slim" scope="row">
+				  <input class="form-check-input" type="checkbox" id="checkbox5">
+				  <label class="form-check-label" for="checkbox5" class="label-table"></label>
+				</td>
+				<td class="td_slim">Larry</td>
+				<td class="td_slim">the Bird</td>
+				<td class="td_slim">@twitter</td>
+				<td class="td_slim">Larry</td>
+				<td class="td_slim">the Bird</td>
+				<td class="td_slim">@twitter</td>
+			  </tr>
+			</tbody>
+			 
+			<!--Table body-->
+		  </table>
+
+		  <!--Table-->
+		</div>
+
+	  </div>
+	</div>
+</div>
+<!-- Table with panel -->
+
+
+
+
+		</div><!-- tab pane -->	
+		<div class="tab-pane fade active show" id="Details-classic" role="tabpanel" aria-labelledby="Details-tab-classic">
+
+<button class="btn btn-outline-primary btn-rounded waves-effect btn-sm" onclick="window.open('CBRE_report.html');">Generate Report</button>
+
+<div class="card card-cascade narrower"  style="padding: 0px 10px 0px 10px;" >
+	<div class="row">
+		<div class="col-12">
+			<a class="btn btn-primary waves-effect waves-light btn-sm" id="bdList_1" data-toggle="button" aria-pressed="false" 
+				onClick="togleBdSection(this);return true;">One Raffles Place</a>
+			<a class="btn btn-primary waves-effect waves-light btn-sm" id="bdList_2" data-toggle="button" aria-pressed="false" 
+				onClick="togleBdSection(this);return true;">Tong Eng Building</a>
+			<a class="btn btn-primary waves-effect waves-light btn-sm" id="bdList_3" data-toggle="button" aria-pressed="false" 
+				onClick="togleBdSection(this);return true;">Wisma Atria</a>
+			<a class="btn btn-primary waves-effect waves-light btn-sm" id="bdList_4" data-toggle="button" aria-pressed="false" 
+				onClick="togleBdSection(this);return true;">EON Shenton</a>
+
+		</div>
+	</div>
+	<div class="row">
+	  <div class="col-md-10">
+		<select id="ddSections" onChange="filterSections();return true;" 
+				class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">
+		  <option value="" disabled selected>Choose the sections</option>
+		  <option value="Building"   selected>Building information</option>
+		  <option value="Property" >Property Details</option>
+		  <option value="Area" >Area information</option>
+		  <option value="Statistics" >Statistics</option>
+		  <option value="Spaces" >Space Details</option>
+
+		</select>
+		<label class="mdb-main-label">Display the follwing information: </label>
+	  </div>
+	  <div class="col-md-2" style="text-align:left !important;">			
+			<BR>
+			<button class="btn btn-outline-primary btn-rounded waves-effect btn-sm" >Apply</button>
+	  </div>
+	</div>	
+
+
+
+	<div class="card card-cascade narrower" style="padding: 0px 10px 0px 10px; display:block" id="div_bdList_1">
+		<div class="card text-primary text-section"><B>One Raffles Place (1 Raffles Place, Singapore 048616)</b></div>
+	
+		<div class="card card-cascade narrower Building" style="padding: 0px 10px 0px 10px; display:block;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Building information</div>
+		
+				<div class="row">
+					<div class="col-md-6 spacer_5">
+
+						<div class="form-row md-form">
+							<div class="col-md-6 spacer_5">					
+								<input type="text" value="Office" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Property Type</label>
+							</div>			
+							<div class="col-md-6 spacer_5">	
+								<input type="text" value="CBD" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Micromarket</label>
+							</div>
+						</div> <!-- row -->
+						<div class="form-row md-form">	
+							<div class="col-md-6 spacer_5">
+								<input type="text" value="Business 1" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Zoning</label>
+							</div>
+						
+							<div class="col-md-6 spacer_5">					
+								<input type="text" value="Comercial" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Usage</label>
+							</div>	
+						</div> <!-- row -->
+						<div class="form-row md-form">	
+							<div class="col-md-6 spacer_5">	
+								<input type="text" value="SLA" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Land Ownership</label>
+							</div>
+							
+							<div class="col-md-6 spacer_5">
+								<input type="text" value="available" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Status</label>
+							</div>
+						</div> <!-- row -->
+			
+					</div>
+					<div class="col-md-3 spacer_5">		
+						<br>			
+						<img src="img/bImage_1.png" width="100%" >
+		
+					</div>	
+					<div class="col-md-3 spacer_5">		
+						<br>			
+						<img src="img/Floorplan1.png" width="100%" >
+						<button type="button" title="Add to Bookmarks" class="btn btn-sm btn-outline-blue btn-rounded btn-sm px-2 waves-effect waves-light">
+							<i class="fas fa-columns mt-0"></i> </button>
+						<button type="button" title="Share Bookmarks" class="btn btn-sm btn-outline-blue btn-rounded btn-sm px-2 waves-effect waves-light">
+							<i class="fas fa-share mt-0"></i> </button>
+						<button type="button" title="Zoom on map" onclick="fctZoomRow(0, 'OBJECTID', 1);"
+							class="btn  btn-sm btn-outline-blue btn-rounded btn-sm px-2 waves-effect waves-light">
+							<i class="fas fa-map mt-0"></i> </button>			
+					</div>
+					
+				</div> <!-- row -->		
+		</div>
+		
+		<div class="card card-cascade narrower Property" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Property details</div>
+
+				<div class="form-row ">
+					<textarea id="form8" class="md-textarea form-control " rows="3">Considering water tap-off is available only from server. 
+Charges depending on the size of server 100$/mth for 16000 btu. After office hours is charged at $100/hr/premises, regardless of size</textarea>
+				</div>	<!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-12 spacer_5">					
+						<input type="text" value="Class A office building integrating rich heritage with contemporary design" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Description</label>
+					</div>	
+				</div>
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="23 Feb 1976" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">TOP Date</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="SLA" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Land Ownership</label>
+					</div>
+					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Coemrcial" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Use Type</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Prp management PTE" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Tenant</label>
+					</div>					
+				</div> <!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="3" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Below Ground</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="34" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Above Ground</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="37" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Total Floors</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="35" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No OfOffice Floors</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="33" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">UltraHigh_TopFloor</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="20" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">High_ op Floor</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="8" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Mid Top Floor</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="5" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Low Top Floor</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="2" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No of PassengerLift</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="yes" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Car Park Lift toG_F</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="120 lots" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Parking Details</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Yes" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Seasonal</label>
+					</div>
+				</div> <!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Comercial" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Type of usage</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="1" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No Of Loading Bays</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="0" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No Of Cranes</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="track, car" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Accessible For </label>
+					</div>
+				</div> <!-- row -->
+				
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Area" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Area information</div>
+			
+				<div class="form-row ">					
+					<textarea id="form7" class="md-textarea form-control " rows="3">CBD is that part of the city which contains the principal commercial streets and main public buildings. Throughout history the CBD has been characterized by a number of land use changes that include industrial, residential, commercial, administration, and consumption.</textarea>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Raffles place" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 1</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="5" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 1 Distance</label>
+					</div>					
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Boat Quey" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 2</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="10" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 2 Distance</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="City Hall" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 3</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="15" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 3 Distance</label>
+					</div>					
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="22, 197, 55" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Bus</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Other</label>
+					</div>
+				</div> <!-- row -->		
+				
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Statistics" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Statistics</div>
+			
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="33,343" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Gross Floor Area</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="40,234" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Land Area</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="20,345" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Net Lettable Area</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="20% office" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Area Breakdown</label>
+					</div>
+				</div> <!-- row -->	
+
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="3" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Floor from</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="34" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Ceiling from</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="37" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Loading from</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="35" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Loading to</label>
+					</div>
+				</div> <!-- row -->					
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Spaces" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Space information</div>
+			
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+
+	<div class="table-wrapper px-4">
+		  <!--Table-->
+
+		<table id ="dtSpaceList_1" class="table table-sm able-striped table-hover mb-0" cellspacing="0" width="100%">
+
+			<!--Table head-->
+			<thead>
+			  <tr >
+				<th class="th-sm"> <a>Availabilty<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Floor<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Unit Name<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Area<i class="fas fa-sort ml-1"></i></a></th>
+			  </tr>
+			</thead>
+			<!--Table head-->
+
+			<!--Table body style="border-bottom:2px solid #dee2e6"-->
+			<tbody style="padding-bottom: 0px; padding-top: 0px;">
+			  <tr >
+				<td class="td_slim">Yes</td>
+				<td class="td_slim">L5</td>
+				<td class="td_slim">222</td>
+				<td class="td_slim">1,334.0 Sq ft</td>
+			  </tr>
+			  <tr>
+				<td class="td_slim">No</td>
+				<td class="td_slim">L5</td>
+				<td class="td_slim">225</td>
+				<td class="td_slim">2,952.0 Sq ft</td>
+			  </tr>
+			  <tr>
+				<td class="td_slim">Yes</td>
+				<td class="td_slim">L15</td>
+				<td class="td_slim">256</td>
+				<td class="td_slim">1,652.0 Sq ft</td>
+			  </tr>
+
+			</tbody>
+			 
+			<!--Table body-->
+		  </table>
+
+		  <!--Table-->
+		</div>
+
+				</div> <!-- row -->					
+		</div><!-- card category-->			
+				
+	</div><!-- card -->	
+
+
+	<div class="card card-cascade narrower" style="padding: 0px 10px 0px 10px; display:block" id="div_bdList_2">
+		<div class="card text-primary text-section"><B>Tong Eng Building (101 Cecil Street, Singapore 069533)</b></div>
+	
+		<div class="card card-cascade narrower Building" style="padding: 0px 10px 0px 10px; display:block;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Building information</div>
+		
+				<div class="row">
+					<div class="col-md-6 spacer_5">
+
+						<div class="form-row md-form">
+							<div class="col-md-6 spacer_5">					
+								<input type="text" value="Office" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Property Type</label>
+							</div>			
+							<div class="col-md-6 spacer_5">	
+								<input type="text" value="CBD" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Micromarket</label>
+							</div>
+						</div> <!-- row -->
+						<div class="form-row md-form">	
+							<div class="col-md-6 spacer_5">
+								<input type="text" value="Business 1" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Zoning</label>
+							</div>
+						
+							<div class="col-md-6 spacer_5">					
+								<input type="text" value="Comercial" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Usage</label>
+							</div>	
+						</div> <!-- row -->
+						<div class="form-row md-form">	
+							<div class="col-md-6 spacer_5">	
+								<input type="text" value="SLA" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Land Ownership</label>
+							</div>
+							
+							<div class="col-md-6 spacer_5">
+								<input type="text" value="available" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Status</label>
+							</div>
+						</div> <!-- row -->
+			
+					</div>
+					<div class="col-md-3 spacer_5">		
+						<br>			
+						<img src="img/bImage_2.png" width="100%" >
+		
+					</div>	
+					<div class="col-md-3 spacer_5">		
+						<br>			
+						<img src="img/Floorplan2.png" width="100%" >
+						<button type="button" title="Zoom on map"  onclick="fctZoomRow(0, 'OBJECTID', 3);"
+							class="btn  btn-sm btn-outline-blue btn-rounded btn-sm px-2 waves-effect waves-light">
+							<i class="fas fa-columns mt-0"></i> </button>			
+					</div>
+					
+				</div> <!-- row -->		
+		</div>
+		
+		<div class="card card-cascade narrower Property" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Property details</div>
+
+				<div class="form-row ">
+					<textarea id="form8" class="md-textarea form-control " rows="3">Considering water tap-off is available only from server. 
+Charges depending on the size of server 100$/mth for 16000 btu. After office hours is charged at $100/hr/premises, regardless of size</textarea>
+				</div>	<!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-12 spacer_5">					
+						<input type="text" value="Class A office building integrating rich heritage with contemporary design" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Description</label>
+					</div>	
+				</div>
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="23 Feb 1976" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">TOP Date</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="SLA" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Land Ownership</label>
+					</div>
+					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Coemrcial" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Use Type</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Prp management PTE" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Tenant</label>
+					</div>					
+				</div> <!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="3" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Below Ground</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="34" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Above Ground</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="37" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Total Floors</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="35" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No OfOffice Floors</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="33" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">UltraHigh_TopFloor</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="20" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">High_ op Floor</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="8" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Mid Top Floor</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="5" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Low Top Floor</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="2" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No of PassengerLift</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="yes" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Car Park Lift toG_F</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="120 lots" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Parking Details</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Yes" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Seasonal</label>
+					</div>
+				</div> <!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Comercial" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Type of usage</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="1" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No Of Loading Bays</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="0" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No Of Cranes</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="track, car" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Accessible For </label>
+					</div>
+				</div> <!-- row -->
+				
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Area" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Area information</div>
+			
+				<div class="form-row ">					
+					<textarea id="form7" class="md-textarea form-control " rows="3">CBD is that part of the city which contains the principal commercial streets and main public buildings. Throughout history the CBD has been characterized by a number of land use changes that include industrial, residential, commercial, administration, and consumption.</textarea>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Raffles place" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 1</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="5" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 1 Distance</label>
+					</div>					
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Boat Quey" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 2</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="10" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 2 Distance</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="City Hall" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 3</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="15" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 3 Distance</label>
+					</div>					
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="22, 197, 55" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Bus</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Other</label>
+					</div>
+				</div> <!-- row -->		
+				
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Statistics" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Statistics</div>
+			
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="33,343" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Gross Floor Area</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="40,234" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Land Area</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="20,345" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Net Lettable Area</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="20% office" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Area Breakdown</label>
+					</div>
+				</div> <!-- row -->	
+
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="3" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Floor from</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="34" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Ceiling from</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="37" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Loading from</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="35" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Loading to</label>
+					</div>
+				</div> <!-- row -->					
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Spaces" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Space information</div>
+			
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+
+	<div class="table-wrapper px-4">
+		  <!--Table-->
+
+		<table id ="dtSpaceList_1" class="table table-sm able-striped table-hover mb-0" cellspacing="0" width="100%">
+
+			<!--Table head-->
+			<thead>
+			  <tr >
+				<th class="th-sm"> <a>Availabilty<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Floor<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Unit Name<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Area<i class="fas fa-sort ml-1"></i></a></th>
+			  </tr>
+			</thead>
+			<!--Table head-->
+
+			<!--Table body style="border-bottom:2px solid #dee2e6"-->
+			<tbody style="padding-bottom: 0px; padding-top: 0px;">
+			  <tr >
+				<td class="td_slim">Yes</td>
+				<td class="td_slim">L5</td>
+				<td class="td_slim">222</td>
+				<td class="td_slim">1,334.0 Sq ft</td>
+			  </tr>
+			  <tr>
+				<td class="td_slim">No</td>
+				<td class="td_slim">L5</td>
+				<td class="td_slim">225</td>
+				<td class="td_slim">2,952.0 Sq ft</td>
+			  </tr>
+			  <tr>
+				<td class="td_slim">Yes</td>
+				<td class="td_slim">L15</td>
+				<td class="td_slim">256</td>
+				<td class="td_slim">1,652.0 Sq ft</td>
+			  </tr>
+
+			</tbody>
+			 
+			<!--Table body-->
+		  </table>
+
+		  <!--Table-->
+		</div>
+
+				</div> <!-- row -->					
+		</div><!-- card category-->			
+				
+	</div><!-- card -->	
+
+
+
+	<div class="card card-cascade narrower" style="padding: 0px 10px 0px 10px; display:block" id="div_bdList_3">
+		<div class="card text-primary text-section"><B>Wisma Atria (435 Orchard Road, Singapore 238877)</b></div>
+	
+		<div class="card card-cascade narrower Building" style="padding: 0px 10px 0px 10px; display:block;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Building information</div>
+		
+				<div class="row">
+					<div class="col-md-6 spacer_5">
+
+						<div class="form-row md-form">
+							<div class="col-md-6 spacer_5">					
+								<input type="text" value="Office" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Property Type</label>
+							</div>			
+							<div class="col-md-6 spacer_5">	
+								<input type="text" value="CBD" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Micromarket</label>
+							</div>
+						</div> <!-- row -->
+						<div class="form-row md-form">	
+							<div class="col-md-6 spacer_5">
+								<input type="text" value="Business 1" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Zoning</label>
+							</div>
+						
+							<div class="col-md-6 spacer_5">					
+								<input type="text" value="Comercial" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Usage</label>
+							</div>	
+						</div> <!-- row -->
+						<div class="form-row md-form">	
+							<div class="col-md-6 spacer_5">	
+								<input type="text" value="SLA" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Land Ownership</label>
+							</div>
+							
+							<div class="col-md-6 spacer_5">
+								<input type="text" value="available" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Status</label>
+							</div>
+						</div> <!-- row -->
+			
+					</div>
+					<div class="col-md-3 spacer_5">		
+						<br>			
+						<img src="img/bImage_3.png" width="100%" >
+		
+					</div>	
+					<div class="col-md-3 spacer_5">		
+						<br>			
+						<img src="img/Floorplan3.png" width="100%" >
+
+						<button type="button" title="Zoom on map"  onclick="fctZoomRow(0, 'OBJECTID', 8);"
+							class="btn  btn-sm btn-outline-blue btn-rounded btn-sm px-2 waves-effect waves-light">
+							<i class="fas fa-bookmark mt-0"></i> </button>			
+					</div>
+					
+				</div> <!-- row -->		
+		</div>
+		
+		<div class="card card-cascade narrower Property" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Property details</div>
+
+				<div class="form-row ">
+					<textarea id="form8" class="md-textarea form-control " rows="3">Considering water tap-off is available only from server. 
+Charges depending on the size of server 100$/mth for 16000 btu. After office hours is charged at $100/hr/premises, regardless of size</textarea>
+				</div>	<!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-12 spacer_5">					
+						<input type="text" value="Class A office building integrating rich heritage with contemporary design" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Description</label>
+					</div>	
+				</div>
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="23 Feb 1976" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">TOP Date</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="SLA" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Land Ownership</label>
+					</div>
+					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Coemrcial" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Use Type</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Prp management PTE" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Tenant</label>
+					</div>					
+				</div> <!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="3" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Below Ground</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="34" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Above Ground</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="37" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Total Floors</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="35" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No OfOffice Floors</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="33" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">UltraHigh_TopFloor</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="20" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">High_ op Floor</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="8" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Mid Top Floor</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="5" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Low Top Floor</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="2" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No of PassengerLift</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="yes" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Car Park Lift toG_F</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="120 lots" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Parking Details</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Yes" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Seasonal</label>
+					</div>
+				</div> <!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Comercial" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Type of usage</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="1" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No Of Loading Bays</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="0" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No Of Cranes</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="track, car" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Accessible For </label>
+					</div>
+				</div> <!-- row -->
+				
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Area" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Area information</div>
+			
+				<div class="form-row ">					
+					<textarea id="form7" class="md-textarea form-control " rows="3">CBD is that part of the city which contains the principal commercial streets and main public buildings. Throughout history the CBD has been characterized by a number of land use changes that include industrial, residential, commercial, administration, and consumption.</textarea>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Raffles place" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 1</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="5" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 1 Distance</label>
+					</div>					
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Boat Quey" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 2</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="10" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 2 Distance</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="City Hall" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 3</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="15" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 3 Distance</label>
+					</div>					
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="22, 197, 55" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Bus</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Other</label>
+					</div>
+				</div> <!-- row -->		
+				
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Statistics" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Statistics</div>
+			
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="33,343" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Gross Floor Area</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="40,234" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Land Area</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="20,345" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Net Lettable Area</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="20% office" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Area Breakdown</label>
+					</div>
+				</div> <!-- row -->	
+
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="3" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Floor from</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="34" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Ceiling from</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="37" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Loading from</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="35" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Loading to</label>
+					</div>
+				</div> <!-- row -->					
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Spaces" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Space information</div>
+			
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+
+	<div class="table-wrapper px-4">
+		  <!--Table-->
+
+		<table id ="dtSpaceList_1" class="table table-sm able-striped table-hover mb-0" cellspacing="0" width="100%">
+
+			<!--Table head-->
+			<thead>
+			  <tr >
+				<th class="th-sm"> <a>Availabilty<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Floor<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Unit Name<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Area<i class="fas fa-sort ml-1"></i></a></th>
+			  </tr>
+			</thead>
+			<!--Table head-->
+
+			<!--Table body style="border-bottom:2px solid #dee2e6"-->
+			<tbody style="padding-bottom: 0px; padding-top: 0px;">
+			  <tr >
+				<td class="td_slim">Yes</td>
+				<td class="td_slim">L5</td>
+				<td class="td_slim">222</td>
+				<td class="td_slim">1,334.0 Sq ft</td>
+			  </tr>
+			  <tr>
+				<td class="td_slim">No</td>
+				<td class="td_slim">L5</td>
+				<td class="td_slim">225</td>
+				<td class="td_slim">2,952.0 Sq ft</td>
+			  </tr>
+			  <tr>
+				<td class="td_slim">Yes</td>
+				<td class="td_slim">L15</td>
+				<td class="td_slim">256</td>
+				<td class="td_slim">1,652.0 Sq ft</td>
+			  </tr>
+
+			</tbody>
+			 
+			<!--Table body-->
+		  </table>
+
+		  <!--Table-->
+		</div>
+
+				</div> <!-- row -->					
+		</div><!-- card category-->			
+				
+	</div><!-- card -->	
+
+
+	<div class="card card-cascade narrower" style="padding: 0px 10px 0px 10px; display:block" id="div_bdList_4">
+		<div class="card text-primary text-section"><B>EON Shenton (70 Shenton Way Singapore 079118)</b></div>
+	
+		<div class="card card-cascade narrower Building" style="padding: 0px 10px 0px 10px; display:block;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Building information</div>
+		
+				<div class="row">
+					<div class="col-md-6 spacer_5">
+
+						<div class="form-row md-form">
+							<div class="col-md-6 spacer_5">					
+								<input type="text" value="Office" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Property Type</label>
+							</div>			
+							<div class="col-md-6 spacer_5">	
+								<input type="text" value="CBD" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Micromarket</label>
+							</div>
+						</div> <!-- row -->
+						<div class="form-row md-form">	
+							<div class="col-md-6 spacer_5">
+								<input type="text" value="Business 1" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Zoning</label>
+							</div>
+						
+							<div class="col-md-6 spacer_5">					
+								<input type="text" value="Comercial" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Usage</label>
+							</div>	
+						</div> <!-- row -->
+						<div class="form-row md-form">	
+							<div class="col-md-6 spacer_5">	
+								<input type="text" value="SLA" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Land Ownership</label>
+							</div>
+							
+							<div class="col-md-6 spacer_5">
+								<input type="text" value="available" id="form1" class="form-control disabled">
+								<label for="form1"   class="disabled">Status</label>
+							</div>
+						</div> <!-- row -->
+			
+					</div>
+					<div class="col-md-3 spacer_5">		
+						<br>			
+						<img src="img/bImage_4.png" width="100%" >
+		
+					</div>	
+					<div class="col-md-3 spacer_5">		
+						<br>			
+						<img src="img/Floorplan4.png" width="100%" >
+						<button type="button" title="Add to Bookmarks" class="btn btn-sm btn-outline-blue btn-rounded btn-sm px-2 waves-effect waves-light">
+							<i class="fas fa-columns mt-0"></i> </button>
+						<button type="button" title="Share Bookmarks" class="btn btn-sm btn-outline-blue btn-rounded btn-sm px-2 waves-effect waves-light">
+							<i class="fas fa-share-nodes mt-0"></i> </button>
+						<button type="button" title="Zoom on map"  onclick="fctZoomRow(0, 'OBJECTID', 5);"
+							class="btn  btn-sm btn-outline-blue btn-rounded btn-sm px-2 waves-effect waves-light">
+							<i class="fas fa-columns mt-0"></i> </button>			
+					</div>
+					
+				</div> <!-- row -->		
+		</div>
+		
+		<div class="card card-cascade narrower Property" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Property details</div>
+
+				<div class="form-row ">
+					<textarea id="form8" class="md-textarea form-control " rows="3">Considering water tap-off is available only from server. 
+Charges depending on the size of server 100$/mth for 16000 btu. After office hours is charged at $100/hr/premises, regardless of size</textarea>
+				</div>	<!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-12 spacer_5">					
+						<input type="text" value="Class A office building integrating rich heritage with contemporary design" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Description</label>
+					</div>	
+				</div>
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="23 Feb 1976" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">TOP Date</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="SLA" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Land Ownership</label>
+					</div>
+					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Coemrcial" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Use Type</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Prp management PTE" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Tenant</label>
+					</div>					
+				</div> <!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="3" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Below Ground</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="34" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Above Ground</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="37" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Total Floors</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="35" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No OfOffice Floors</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="33" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">UltraHigh_TopFloor</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="20" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">High_ op Floor</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="8" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Mid Top Floor</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="5" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Low Top Floor</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="2" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No of PassengerLift</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="yes" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Car Park Lift toG_F</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="120 lots" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Parking Details</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="Yes" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Seasonal</label>
+					</div>
+				</div> <!-- row -->	
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Comercial" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Type of usage</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="1" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No Of Loading Bays</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="0" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">No Of Cranes</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="track, car" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Accessible For </label>
+					</div>
+				</div> <!-- row -->
+				
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Area" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Area information</div>
+			
+				<div class="form-row ">					
+					<textarea id="form7" class="md-textarea form-control " rows="3">CBD is that part of the city which contains the principal commercial streets and main public buildings. Throughout history the CBD has been characterized by a number of land use changes that include industrial, residential, commercial, administration, and consumption.</textarea>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Raffles place" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 1</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="5" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 1 Distance</label>
+					</div>					
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="Boat Quey" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 2</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="10" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 2 Distance</label>
+					</div>
+				</div> <!-- row -->		
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="City Hall" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 3</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="15" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">MRT 3 Distance</label>
+					</div>					
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="22, 197, 55" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Bus</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Other</label>
+					</div>
+				</div> <!-- row -->		
+				
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Statistics" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Statistics</div>
+			
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="33,343" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Gross Floor Area</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="40,234" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Land Area</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="20,345" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Net Lettable Area</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="20% office" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Area Breakdown</label>
+					</div>
+				</div> <!-- row -->	
+
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+					<div class="col-md-3 spacer_5">					
+						<input type="text" value="3" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Floor from</label>
+					</div>			
+					<div class="col-md-3 spacer_5">	
+						<input type="text" value="34" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Ceiling from</label>
+					</div>					
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="37" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Loading from</label>
+					</div>
+					<div class="col-md-3 spacer_5">
+						<input type="text" value="35" id="form1" class="form-control disabled">
+						<label for="form1"   class="disabled">Loading to</label>
+					</div>
+				</div> <!-- row -->					
+		</div><!-- card category-->	
+
+		<div class="card card-cascade narrower Spaces" style="padding: 0px 10px 0px 10px; display:none;">
+			<div class="card text-primary text-section" style="	color:black  !important;">Space information</div>
+			
+				<div class="form-row md-form"  style="margin-bottom : 0px !important;">
+
+	<div class="table-wrapper px-4">
+		  <!--Table-->
+
+		<table id ="dtSpaceList_1" class="table table-sm able-striped table-hover mb-0" cellspacing="0" width="100%">
+
+			<!--Table head-->
+			<thead>
+			  <tr >
+				<th class="th-sm"> <a>Availabilty<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Floor<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Unit Name<i class="fas fa-sort ml-1"></i></a></th>
+				<th class="th-sm"><a href="">Area<i class="fas fa-sort ml-1"></i></a></th>
+			  </tr>
+			</thead>
+			<!--Table head-->
+
+			<!--Table body style="border-bottom:2px solid #dee2e6"-->
+			<tbody style="padding-bottom: 0px; padding-top: 0px;">
+			  <tr >
+				<td class="td_slim">Yes</td>
+				<td class="td_slim">L5</td>
+				<td class="td_slim">222</td>
+				<td class="td_slim">1,334.0 Sq ft</td>
+			  </tr>
+			  <tr>
+				<td class="td_slim">No</td>
+				<td class="td_slim">L5</td>
+				<td class="td_slim">225</td>
+				<td class="td_slim">2,952.0 Sq ft</td>
+			  </tr>
+			  <tr>
+				<td class="td_slim">Yes</td>
+				<td class="td_slim">L15</td>
+				<td class="td_slim">256</td>
+				<td class="td_slim">1,652.0 Sq ft</td>
+			  </tr>
+
+			</tbody>
+			 
+			<!--Table body-->
+		  </table>
+
+		  <!--Table-->
+		</div>
+
+				</div> <!-- row -->					
+		</div><!-- card category-->			
+				
+	</div><!-- card -->	
+
+
+
+	
+</div>
+
+
+	
+	
+<!--div class="card mt-2 p-2 MOM">
+<div class="card text-primary text-section">MOM Demerit Points for BAN CHON CORPORATION &amp; TRADING PTE LTD</div>			
+<div class="col-12 p-0">	
+	<div class="">
+			<div class="-body scrollbar-default thin">
+				<div class="row">
+					<div class="d-flex align-items-center">
+					</div>
+				</div>
+				<div id="cc_datatable_wrapper" class="dataTables_wrapper no-footer">
+					<div id="cc_datatable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+					<table class="compact display table-hover pt-2 dataTable no-footer" id="cc_datatable" style="width:100%;border-bottom:solid thin;" role="grid" aria-describedby="cc_datatable_info">
+						<thead>
+							<tr role="row">
+								<th class="sorting" tabindex="0" aria-controls="cc_datatable" rowspan="1" colspan="1" aria-label="Bid SN: activate to sort column ascending">Contractor</th>
+								<th class="sorting" tabindex="0" aria-controls="cc_datatable" rowspan="1" colspan="1" aria-label="Response Type: activate to sort column ascending">Demerit Points</th>
+								<th class="sorting" tabindex="0" aria-controls="cc_datatable" rowspan="1" colspan="1" aria-label="Quantity: activate to sort column ascending">Start Date</th>
+								<th class="sorting" tabindex="0" aria-controls="cc_datatable" rowspan="1" colspan="1" aria-label="Uom: activate to sort column ascending">End Date</th>
+								<th class="sorting" tabindex="0" aria-controls="cc_datatable" rowspan="1" colspan="1" aria-label="Unit Price: activate to sort column ascending">Last refresh</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="1b5833dc-28b2-4ddd-ac45-284ccb11d90e" role="row" class="odd">
+								<td>BAN CHON PTE LTD</td>
+								<td>10</td>
+								<td>10/2/2004</td>
+								<td>10/3/2004</td>
+								<td>1/5/2020</td>
+							</tr>
+							<tr id="40d801bf-d388-4d08-bcd2-617da5629daa" role="row" class="even">
+								<td>BAN CHON CORPORATION PTE LTD</td>
+								<td>7</td>											
+								<td>15/5/2006</td>
+								<td>15/6/2006</td>
+								<td>1/5/2020</td>
+							</tr>
+							<tr id="56167ac1-21c4-4c11-9ab4-03284535971a" role="row" class="odd">
+								<td>BAN CHON CO &amp; TRADING</td>
+								<td>12</td>											
+								<td>5/8/2008</td>
+								<td>5/9/2008</td>
+								<td>1/5/2020</td>
+							</tr>
+						 </tbody>
+					</table>
+					<div class="dataTables_info" id="cc_datatable_info" role="status" aria-live="polite">Showing 1 to 3 of 3 entries</div>
+					<div class="dataTables_paginate paging_simple_numbers" id="cc_datatable_paginate"><a class="paginate_button previous disabled" aria-controls="cc_datatable" data-dt-idx="0" tabindex="0" id="cc_datatable_previous">Previous</a><span><a class="paginate_button current" aria-controls="cc_datatable" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="cc_datatable" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="cc_datatable" data-dt-idx="3" tabindex="0" id="cc_datatable_next">Next</a></div>
+				</div>
+			</div>
+			<span allowedfunclist-data="not implemented"></span>
+		</div>
+</div>
+</div-->
+
+
+		</div><!-- tab pane -->	
+
+
+	  </div><!-- tab  -->	
+
+	</div>
+	<!-- Classic tabs -->
+	
+			
+		
+	</div>	
+	
+	<div class="col-md-6" style="padding-left: 0px;">
+	
+		<div id="viewDiv" style="height:800px">
+		  <div id="menu" class="esri-widget">
+			<calcite-label>
+			  Click one of the buttons below to open the corresponding analysis widget and interact with the analysis.
+			</calcite-label>
+
+			<calcite-button
+			  id="directLineMeasurementAnalysisButton"
+			  icon-start="measure-line"
+			  title="Interact with direct line measurement"
+			>
+			</calcite-button>
+			<calcite-button
+			  id="areaMeasurementAnalysisButton"
+			  icon-start="measure-area"
+			  title="Interact with area measurement"
+			>
+			</calcite-button>
+			<calcite-button id="sliceAnalysisButton" icon-start="slice" title="Interact with slice plane"> </calcite-button>
+			<calcite-button
+			  id="lineOfSightAnalysisButton"
+			  icon-start="line-of-sight"
+			  title="Interact with line of sight analysis"
+			>
+			</calcite-button>
+			<calcite-label></calcite-label>
+			<calcite-button id="removeWidgetButton" title="Remove Widget" style="display: none; width: 140px"
+			  >Remove Widget
+			</calcite-button>
+		  </div>
+		</div>	
+	
+	</div>
+</div>
+
+	
+  </div>
+
+<!--/Main layout-->
+
+<!--Footer-->
+<footer class="page-footer text-center text-md-left pt-4">
+
+
+<!--Social buttons>
+<div class="social-section text-center">
+  <ul class="list-unstyled list-inline">
+	<li class="list-inline-item"><a class="btn-floating btn-fb"><i class="fab fa-facebook-f"> </i></a></li>
+	<li class="list-inline-item"><a class="btn-floating btn-tw"><i class="fab fa-twitter"> </i></a></li>
+	<li class="list-inline-item"><a class="btn-floating btn-gplus"><i class="fab fa-google-plus-g"> </i></a></li>
+	<li class="list-inline-item"><a class="btn-floating btn-li"><i class="fab fa-linkedin-in"> </i></a></li>
+	<li class="list-inline-item"><a class="btn-floating btn-git"><i class="fab fa-github"> </i></a></li>
+  </ul>
+</div>
+<!--/.Social buttons-->
+
+  <!--Copyright-->
+  <div class="footer-copyright py-3 text-center">
+	<div class="container-fluid">  © 2023   </a>
+	</div>
+  </div>
+  <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+
+<script>
+
+//========== nested menu management ===========
+var totalCount = 4;
+function removeNestedItem(itemId){
+	var elem = document.getElementById(itemId);
+	elem.parentNode.removeChild(elem);
+	//updateOutput($('#nestable2').data('output', $('#nestable2-output')));
+}
+function addNestedItemVal(){
+
+	var itemTxt = document.getElementById("selNestField").value + 
+		"&nbsp;"+ document.getElementById("selNestOper").value +
+		"&nbsp;'"+ document.getElementById("inNestValue").value +"'" ;
+	//console.log(itemTxt);
+	return addNestedItem(itemTxt);
+}
+function addNestedItem(text){
+console.log(text);
+	var clsColor = text == "AND" ? " nestOpAnd " : text == "OR" ? " nestOpOr " : "";	
+	console.log(clsColor);
+	var newLi = '<li class="dd-item dd3-item" data-id="' + ++totalCount + 
+		'" id="nestItem' + totalCount + '"><div class="dd-handle dd3-handle" ></div><div class="dd3-content'+clsColor+'" name="'+
+		totalCount+'">'+ text +'<img src="http://localhost:8080/ECP_designer/img/delGray.gif" onClick="removeNestedItem(\'nestItem'+
+		totalCount+ '\')"></div></li>';
+	console.log("newLi:"+newLi)
+	$('ol.outer').append(newLi);	
+	document.getElementById("inNestValue").value = "";
+}
+document.getElementById("inNestValue").addEventListener("keydown", function(e) {
+    if (!e) { var e = window.event; }
+    //e.preventDefault(); // sometimes useful
+    if (e.keyCode == 13) {
+		addNestedItem(); 
+	}
+}, false);
+
+function toggleSearch(isAdv){
+	if (isAdv){
+		document.getElementById('cdSearchBuild').style.display='none';
+		document.getElementById('cdSearchAdv').style.display='block'
+	}else{
+		document.getElementById('cdSearchBuild').style.display='block';
+		document.getElementById('cdSearchAdv').style.display='none'
+	
+	}
+	
+}
+
+
+function togleBdSection(btn){
+	if (document.getElementById("div_"+btn.id).style.display == "block")
+		document.getElementById("div_"+btn.id).style.display = "none";
+	else
+		document.getElementById("div_"+btn.id).style.display = "block"
+}
+
+function filterSections(){
+
+    var mddSections = document.getElementById("ddSections");
+	var secDivs;
+    for (var i = 0; i < mddSections.length; i++)
+        if (mddSections.options[i].selected){
+			secDivs = document.getElementsByClassName(mddSections.options[i].value);
+			for (j = 0; j < secDivs.length; j++)
+				secDivs[j].style.display = "block";					
+		} else{
+			secDivs = document.getElementsByClassName(mddSections.options[i].value);
+			for (j = 0; j < secDivs.length; j++)
+				secDivs[j].style.display = "none";
+		}
+}
+//https://developers.arcgis.com/javascript/latest/sample-code/visualization-buildings-3d/
+
+$(document).ready(function() {
+
+
+	new WOW().init(); //side menu init
+
+	var updateOutput = function(e){
+		var list   = e.length ? e : $(e.target),
+			output = list.data('output');
+		if (window.JSON) {
+			output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+		} else {
+			output.val('JSON browser support required for this demo.');
+		}
+	};
+	$('#nestable3').nestable();
+	
+
+  
+	$('.mdb-select').materialSelect();
+	$('.datepicker').pickadate();
+
+	// SideNav Initialization
+	$(".button-collapse").sideNav();
+  
+	//  $('#dtBasicExample').DataTable();
+	//  $('.dataTables_length').addClass('bs-select');  
+	/*$('#dtHorizontalVerticalExample').DataTable({
+		"scrollX": true,
+		"scrollY": 200,
+	});*/
+
+	  $('#dt-filter-search').dataTable({
+		"scrollX": true,
+		columnDefs: [{
+		  orderable: false,
+		  className: 'select-checkbox select-checkbox-all',
+		  targets: 0
+		}],
+		select: {
+		  style: 'multi',
+		  selector: 'td:first-child'
+		},
+		initComplete: function () {
+		  this.api().columns().every( function () {
+			  var column = this;
+			  var search = $(`<input class="form-control form-control-sm" type="text" placeholder="Search">`)
+				  .appendTo( $(column.footer()).empty() )
+				  .on( 'change input', function () {
+					  var val = $(this).val()
+
+					  column
+						  .search( val ? val : '', true, false )
+						  .draw();
+				  } );
+
+		  } );
+	  }
+	  });
+
+  $('#dtBasicExample2').dataTable({
+		"scrollX": true,
+		columnDefs: [{
+		  orderable: false,
+		  //className: 'select-checkbox select-checkbox-all',
+		  targets: 0
+		}],
+		select: {
+		  style: 'multi',
+		  //selector: 'td:first-child'
+		},
+  });
+  //$('#dtBasicExample2').DataTable();
+  $('.dataTables_length').addClass('bs-select');
+
+	  
+// $('#dtSpaceList_1').dataTable({"scrollX": true });  
+
+
+
+	  
+  $('.dataTables_length').addClass('bs-select');
+  
+  
+  /*$('#dt-filter-search').dataTable({
+
+    initComplete: function () {
+      this.api().columns().every( function () {
+          var column = this;
+          var search = $(`<input class="form-control form-control-sm" type="text" placeholder="Search">`)
+              .appendTo( $(column.footer()).empty() )
+              .on( 'change input', function () {
+                  var val = $(this).val()
+
+                  column
+                      .search( val ? val : '', true, false )
+                      .draw();
+              } );
+
+      } );
+  }
+  });*/
+
+
+
+  
+  var response = {
+    features :[{
+  
+	   attributes : [
+			{name: "Cris", age:21},
+			{name: "wer", age:35},
+			{name: "werw", age:54}
+	   ]
+	 }]
+  
+  };
+  
+  // Convert response JSON to DataTable input JSON format
+	var data = response.features.map(function(feature) {
+		return Object.values(feature.attributes);
+		//return [ feature.attributes.fid, feature.attributes.bus_roof_n, feature.attributes.loc_desc, feature.attributes.bus_stop_n];
+
+	});
+	
+	console.log(data);
+
+	// Initialize DataTable
+	//var table = $('#myTable').DataTable({data: data});
+
+	//console.log(data);
+	/*table = $('#myTable').DataTable({
+		data: data,
+		columnDefs: [ 
+		  {	data: null,
+            orderable: false,
+			defaultContent: '',
+            className: 'select-checkbox',
+            //targets:  0	
+          },
+		  { data: 'fid' },
+		  { data: 'bus_roof_n' },
+		  { data: 'loc_desc' },
+		  { data: 'bus_stop_n' }
+	    ],
+		select: {
+		  style: 'multi',
+		  selector: 'td:first-child'
+		},
+		order: [[ 1, 'asc' ]],
+		rowId: 'fid'
+	  });
+
+	 /* $('#add-row-form').submit(function(event) {
+		event.preventDefault();
+
+		var rowValues = {
+		  'fid': $('#fid').val(),
+		  'bus_roof_n': $('#bus_roof_n').val(),
+		  'loc_desc': $('#loc_desc').val(),
+		  'bus_stop_n': $('#bus_stop_n').val()
+		};
+
+		var rowNode = table.row.add(rowValues).draw().node();
+		$(rowNode).attr('id', rowValues['fid']);
+
+		$('#add-row-popup').hide();
+		$('#add-row-form').trigger('reset');
+	});
+
+	$('#add-row').click(function() {
+		$('#add-row-popup').show();
+	});*/
+
+  
+	document.getElementById("btnMenuSlide").click();
+	document.getElementById("btnMenuSlide").style.display = "block";
+});
+
+/* run with chrome cors
+fetch('CBRW_PropInfo.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+}
+//#160a4c  banner back	light blue 30d8fc
+
+*/
+
+	
+
+</script>
+
+
+</body>
+</html>

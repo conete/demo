@@ -1,0 +1,1060 @@
+{ "formStruct" : {
+   "fields": {
+      "pt_tree>ID": {
+         "name": "pt_tree>ID",
+         "label": "ID",
+         "type": "INTEGER",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "false",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "pt_tree>tree_name": {
+         "name": "pt_tree>tree_name",
+         "label": "Name",
+         "type": "VARCHAR(100)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>Common_name": {
+         "name": "pt_tree>Common_name",
+         "label": "Common name",
+         "type": "VARCHAR(100)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>genus": {
+         "name": "pt_tree>genus",
+         "label": "genus",
+         "type": "VARCHAR(100)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>planted_dt": {
+         "name": "pt_tree>planted_dt",
+         "label": "planted date",
+         "type": "datetime",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>tree_ID": {
+         "name": "pt_tree>tree_ID",
+         "label": "tree ID",
+         "type": "VARCHAR(100)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "false",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "pt_tree>stock_type": {
+         "name": "pt_tree>stock_type",
+         "label": "stock type",
+         "type": "VARCHAR(50)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>last_update": {
+         "name": "pt_tree>last_update",
+         "label": "last update",
+         "type": "datetime",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>added_dt": {
+         "name": "pt_tree>added_dt",
+         "label": "added date",
+         "type": "datetime",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>maint_priority": {
+         "name": "pt_tree>maint_priority",
+         "label": "maint priority",
+         "type": "VARCHAR(50)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>is_real": {
+         "name": "pt_tree>is_real",
+         "label": "is real",
+         "type": "ENUM(50)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>crown_girth": {
+         "name": "pt_tree>crown_girth",
+         "label": "crown girth",
+         "type": "decimal(12,2)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>height": {
+         "name": "pt_tree>height",
+         "label": "height",
+         "type": "decimal(12,2)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>age": {
+         "name": "pt_tree>age",
+         "label": "age",
+         "type": "decimal(12,2)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>conservation": {
+         "name": "pt_tree>conservation",
+         "label": "conservation",
+         "type": "ENUM(50)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>target": {
+         "name": "pt_tree>target",
+         "label": "target",
+         "type": "ENUM(50)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "pt_tree>topography": {
+         "name": "pt_tree>topography",
+         "label": "topography",
+         "type": "ENUM(50)",
+         "inherit": "",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "true",
+         "compulField": "true",
+         "validateField": "true"
+      },
+      "mgmt_org>ID": {
+         "name": "mgmt_org>ID",
+         "label": "mgmt org ID",
+         "type": "INTEGER",
+         "inherit": "> (pt_tree,mgmt_org,mgmt_org_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "false",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "mgmt_org>name": {
+         "name": "mgmt_org>name",
+         "label": "mgmt org name",
+         "type": "VARCHAR(50)",
+         "inherit": "> (pt_tree,mgmt_org,mgmt_org_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "mgmt_org>type": {
+         "name": "mgmt_org>type",
+         "label": "mgmt org type",
+         "type": "ENUM(50)",
+         "inherit": "> (pt_tree,mgmt_org,mgmt_org_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "po_plot>ID": {
+         "name": "po_plot>ID",
+         "label": "po plot ID",
+         "type": "INTEGER",
+         "inherit": "> (pt_tree,po_plot,po_plot_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "po_plot>land_use": {
+         "name": "po_plot>land_use",
+         "label": "po plot land use",
+         "type": "ENUM(50)",
+         "inherit": "> (pt_tree,po_plot,po_plot_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "po_plot>address": {
+         "name": "po_plot>address",
+         "label": "po plot address",
+         "type": "VARCHAR(100)",
+         "inherit": "> (pt_tree,po_plot,po_plot_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "po_plot>zone_name": {
+         "name": "po_plot>zone_name",
+         "label": "po plot zone name",
+         "type": "VARCHAR(50)",
+         "inherit": "> (pt_tree,po_plot,po_plot_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "po_plot>town_council": {
+         "name": "po_plot>town_council",
+         "label": "po plot town council",
+         "type": "VARCHAR(50)",
+         "inherit": "> (pt_tree,po_plot,po_plot_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "po_plot>MP_ward": {
+         "name": "po_plot>MP_ward",
+         "label": "po plot MP ward",
+         "type": "VARCHAR(50)",
+         "inherit": "> (pt_tree,po_plot,po_plot_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "simulation>name": {
+         "name": "simulation>name",
+         "label": "simulation name",
+         "type": "VARCHAR(50)",
+         "inherit": "> (pt_tree,simulation,simulation_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "simulation>sim_dt": {
+         "name": "simulation>sim_dt",
+         "label": "simulation sim dt",
+         "type": "datetime",
+         "inherit": "> (pt_tree,simulation,simulation_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "simulation>from": {
+         "name": "simulation>from",
+         "label": "simulation from",
+         "type": "datetime",
+         "inherit": "> (pt_tree,simulation,simulation_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      },
+      "simulation>to": {
+         "name": "simulation>to",
+         "label": "simulation to",
+         "type": "datetime",
+         "inherit": "> (pt_tree,simulation,simulation_pt_tree) ",
+         "inForm": "true",
+         "query": "false",
+         "results": "false",
+         "viewField": "true",
+         "editField": "false",
+         "compulField": "false",
+         "validateField": "false"
+      }
+   },
+   "lists": {
+      "inspection": {
+         "label": "inspection",
+         "fields": [
+            {
+               "name": "inspection>symbology",
+               "label": "inspection symbology",
+               "type": "ENUM(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>date",
+               "label": "inspection date",
+               "type": "datetime",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>inspect_by",
+               "label": "inspection inspect by",
+               "type": "VARCHAR(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>observations",
+               "label": "inspection observations",
+               "type": "VARCHAR(500)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>crown_girth",
+               "label": "inspection crown girth",
+               "type": "decimal(12,2)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>height",
+               "label": "inspection height",
+               "type": "int",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>height_range",
+               "label": "inspection height range",
+               "type": "VARCHAR(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>foliage_color",
+               "label": "inspection foliage color",
+               "type": "ENUM(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>canopy_colour",
+               "label": "inspection canopy colour",
+               "type": "ENUM(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>status",
+               "label": "inspection status",
+               "type": "ENUM(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>condition",
+               "label": "inspection condition",
+               "type": "ENUM(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>DBH_range",
+               "label": "inspection DBH range",
+               "type": "VARCHAR(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>DBH",
+               "label": "inspection DBH",
+               "type": "int",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>crown_foilage",
+               "label": "inspection crown foilage",
+               "type": "ENUM(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>wound_wood_dev",
+               "label": "inspection wound wood dev",
+               "type": "ENUM(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>twig_dieback",
+               "label": "inspection twig dieback",
+               "type": "ENUM(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>defect_lean",
+               "label": "inspection defect lean",
+               "type": "ENUM(50)",
+               "inherit": ""
+            },
+            {
+               "name": "inspection>pest_disease",
+               "label": "inspection pest disease",
+               "type": "VARCHAR(100)",
+               "inherit": ""
+            },
+            {
+               "name": "work_order>ID",
+               "label": "work order ID",
+               "type": "INTEGER",
+               "inherit": "> (work_order,inspection,work_order_inspection) "
+            },
+            {
+               "name": "work_order>type",
+               "label": "work order type",
+               "type": "ENUM(50)",
+               "inherit": "> (work_order,inspection,work_order_inspection) "
+            },
+            {
+               "name": "work_order>created_dt",
+               "label": "work order created dt",
+               "type": "datetime",
+               "inherit": "> (work_order,inspection,work_order_inspection) "
+            },
+            {
+               "name": "work_order>status",
+               "label": "work order status",
+               "type": "ENUM(50)",
+               "inherit": "> (work_order,inspection,work_order_inspection) "
+            },
+            {
+               "name": "maint_org>name",
+               "label": "maint org name",
+               "type": "VARCHAR(50)",
+               "inherit": "> (work_order,inspection,work_order_inspection) > (maint_org,work_order,maint_org_work_order) "
+            },
+            {
+               "name": "maint_org>type",
+               "label": "maint org type",
+               "type": "VARCHAR(50)",
+               "inherit": "> (work_order,inspection,work_order_inspection) > (maint_org,work_order,maint_org_work_order) "
+            },
+            {
+               "name": "maint_org>start_dt",
+               "label": "maint org start dt",
+               "type": "datetime",
+               "inherit": "> (work_order,inspection,work_order_inspection) > (maint_org,work_order,maint_org_work_order) "
+            },
+            {
+               "name": "maint_org>end_dt",
+               "label": "maint org end dt",
+               "type": "datetime",
+               "inherit": "> (work_order,inspection,work_order_inspection) > (maint_org,work_order,maint_org_work_order) "
+            },
+            {
+               "name": "maint_org>status",
+               "label": "maint org status",
+               "type": "ENUM(50)",
+               "inherit": "> (work_order,inspection,work_order_inspection) > (maint_org,work_order,maint_org_work_order) "
+            }
+         ]
+      },
+      "environment": {
+         "label": "environment",
+         "fields": [
+            {
+               "name": "environment>ID",
+               "label": "environment ID",
+               "type": "INTEGER",
+               "inherit": ""
+            },
+            {
+               "name": "environment>watershed",
+               "label": "environment watershed",
+               "type": "int",
+               "inherit": ""
+            },
+            {
+               "name": "environment>solar",
+               "label": "environment solar",
+               "type": "int",
+               "inherit": ""
+            },
+            {
+               "name": "environment>wind",
+               "label": "environment wind",
+               "type": "int",
+               "inherit": ""
+            },
+            {
+               "name": "environment>underground",
+               "label": "environment underground",
+               "type": "int",
+               "inherit": ""
+            },
+            {
+               "name": "environment>env_CO2",
+               "label": "environment env CO2",
+               "type": "int",
+               "inherit": ""
+            }
+         ]
+      }
+   },
+   "entity": "pt_tree"
+},
+ "sampleDataList" : {
+   "ID": 3,
+   "tree_name": "tree_name_9",
+   "Common_name": "Common_name_0",
+   "genus": "genus_4",
+   "planted_dt": "11/17/2019, 22:58:14",
+   "tree_ID": "tree_ID_7",
+   "stock_type": "stock_type_1",
+   "last_update": "12/13/2019, 23:29:48",
+   "added_dt": "4/24/2019, 13:34:33",
+   "maint_priority": "maint_priority_5",
+   "is_real": "real",
+   "crown_girth": 7.15,
+   "height": 5.01,
+   "age": 9.62,
+   "conservation": "Critically_Endangered",
+   "target": "Park",
+   "topography": "Flat",
+   "name": "name_1",
+   "type": "NUS",
+   "land_use": "vegetation",
+   "address": "address_3",
+   "zone_name": "zone_name_2",
+   "town_council": "town_council_5",
+   "MP_ward": "MP_ward_3",
+   "sim_dt": "3/9/2020, 24:54:44",
+   "from": "11/28/2019, 23:55:20",
+   "to": "7/30/2017, 16:56:35",
+   "lists": {
+      "inspection": [
+         {
+            "symbology": "undefined",
+            "date": "8/5/2018, 18:20:40",
+            "inspect_by": "inspect_by_4",
+            "observations": "observations_0",
+            "crown_girth": 9.92,
+            "height": "height_6",
+            "height_range": "height_range_2",
+            "foliage_color": "brown",
+            "canopy_colour": "green",
+            "status": "for_removal",
+            "condition": "dying",
+            "DBH_range": "DBH_range_9",
+            "DBH": "DBH_9",
+            "crown_foilage": "Normal",
+            "wound_wood_dev": "reparing",
+            "twig_dieback": "fast",
+            "defect_lean": "none",
+            "pest_disease": "pest_disease_8",
+            "ID": 8,
+            "type": "type_4",
+            "created_dt": "1/14/2018, 21:58:06",
+            "name": "name_0",
+            "start_dt": "6/20/2022, 16:08:28",
+            "end_dt": "6/4/2019, 11:25:58"
+         },
+         {
+            "symbology": "undefined",
+            "date": "12/17/2016, 10:28:29",
+            "inspect_by": "inspect_by_5",
+            "observations": "observations_9",
+            "crown_girth": 7.35,
+            "height": "height_7",
+            "height_range": "height_range_5",
+            "foliage_color": "brown",
+            "canopy_colour": "yellow",
+            "status": "for_removal",
+            "condition": "very_poor",
+            "DBH_range": "DBH_range_2",
+            "DBH": "DBH_3",
+            "crown_foilage": "None_or_Dead",
+            "wound_wood_dev": "stagnating",
+            "twig_dieback": "fast",
+            "defect_lean": "soil_cracks",
+            "pest_disease": "pest_disease_7",
+            "ID": 9,
+            "type": "type_5",
+            "created_dt": "7/28/2020, 01:43:11",
+            "name": "name_2",
+            "start_dt": "12/7/2018, 05:54:16",
+            "end_dt": "4/5/2017, 16:59:21"
+         },
+         {
+            "symbology": "undefined",
+            "date": "3/1/2022, 22:32:09",
+            "inspect_by": "inspect_by_9",
+            "observations": "observations_3",
+            "crown_girth": 3.87,
+            "height": "height_5",
+            "height_range": "height_range_1",
+            "foliage_color": "brown",
+            "canopy_colour": "brown",
+            "status": "in_growth",
+            "condition": "very_poor",
+            "DBH_range": "DBH_range_6",
+            "DBH": "DBH_3",
+            "crown_foilage": "Dense",
+            "wound_wood_dev": "stagnating",
+            "twig_dieback": "medium",
+            "defect_lean": "soil_cracks",
+            "pest_disease": "pest_disease_1",
+            "ID": 2,
+            "type": "type_3",
+            "created_dt": "4/12/2019, 05:16:51",
+            "name": "name_1",
+            "start_dt": "3/1/2020, 20:30:42",
+            "end_dt": "7/16/2018, 12:47:31"
+         },
+         {
+            "symbology": "undefined",
+            "date": "4/27/2022, 07:32:57",
+            "inspect_by": "inspect_by_2",
+            "observations": "observations_4",
+            "crown_girth": 7.84,
+            "height": "height_4",
+            "height_range": "height_range_3",
+            "foliage_color": "yellow",
+            "canopy_colour": "no_leaves",
+            "status": "in_growth",
+            "condition": "food",
+            "DBH_range": "DBH_range_6",
+            "DBH": "DBH_0",
+            "crown_foilage": "None_or_Seasonal",
+            "wound_wood_dev": "reparing",
+            "twig_dieback": "fast",
+            "defect_lean": "none",
+            "pest_disease": "pest_disease_6",
+            "ID": 5,
+            "type": "type_2",
+            "created_dt": "9/14/2017, 19:43:03",
+            "name": "name_9",
+            "start_dt": "11/4/2020, 03:05:29",
+            "end_dt": "7/2/2016, 02:00:26"
+         },
+         {
+            "symbology": "undefined",
+            "date": "2/3/2021, 09:25:43",
+            "inspect_by": "inspect_by_4",
+            "observations": "observations_3",
+            "crown_girth": 8.59,
+            "height": "height_9",
+            "height_range": "height_range_2",
+            "foliage_color": "brown",
+            "canopy_colour": "brown",
+            "status": "developed",
+            "condition": "very_poor",
+            "DBH_range": "DBH_range_9",
+            "DBH": "DBH_2",
+            "crown_foilage": "None_or_Seasonal",
+            "wound_wood_dev": "stagnating",
+            "twig_dieback": "medium",
+            "defect_lean": "soil_lifting",
+            "pest_disease": "pest_disease_8",
+            "ID": 5,
+            "type": "type_6",
+            "created_dt": "2/13/2019, 21:56:47",
+            "name": "name_6",
+            "start_dt": "2/14/2017, 22:51:49",
+            "end_dt": "11/25/2022, 23:44:52"
+         }
+      ],
+      "environment": [
+         {
+            "ID": 9,
+            "watershed": "watershed_5",
+            "solar": "solar_3",
+            "wind": "wind_5",
+            "underground": "underground_6",
+            "env_CO2": "env_CO2_8"
+         },
+         {
+            "ID": 3,
+            "watershed": "watershed_6",
+            "solar": "solar_8",
+            "wind": "wind_5",
+            "underground": "underground_6",
+            "env_CO2": "env_CO2_6"
+         },
+         {
+            "ID": 1,
+            "watershed": "watershed_8",
+            "solar": "solar_2",
+            "wind": "wind_1",
+            "underground": "underground_2",
+            "env_CO2": "env_CO2_2"
+         },
+         {
+            "ID": 9,
+            "watershed": "watershed_4",
+            "solar": "solar_2",
+            "wind": "wind_7",
+            "underground": "underground_4",
+            "env_CO2": "env_CO2_1"
+         },
+         {
+            "ID": 1,
+            "watershed": "watershed_9",
+            "solar": "solar_3",
+            "wind": "wind_6",
+            "underground": "underground_3",
+            "env_CO2": "env_CO2_2"
+         }
+      ]
+   }
+},
+"outJsonCascade" : {
+   "ID": 7,
+   "tree_name": "tree_name_4",
+   "Common_name": "Common_name_4",
+   "genus": "genus_6",
+   "planted_dt": "10/15/2022, 21:24:51",
+   "tree_ID": "tree_ID_5",
+   "stock_type": "stock_type_5",
+   "last_update": "1/10/2021, 23:42:55",
+   "added_dt": "11/30/2016, 04:13:21",
+   "maint_priority": "maint_priority_4",
+   "is_real": "real",
+   "crown_girth": 5.57,
+   "height": 5.02,
+   "age": 3.24,
+   "conservation": "Critically_Endangered",
+   "target": "Walkway",
+   "topography": "Gentle_slope",
+   "mgmt_org": {
+      "ID": 9,
+      "name": "name_4",
+      "type": "NParks"
+   },
+   "po_plot": {
+      "ID": 2,
+      "land_use": "vegetation",
+      "address": "address_0",
+      "zone_name": "zone_name_4",
+      "town_council": "town_council_3",
+      "MP_ward": "MP_ward_9"
+   },
+   "simulation": {
+      "name": "name_2",
+      "sim_dt": "9/6/2017, 01:14:17",
+      "from": "11/26/2015, 02:31:53",
+      "to": "12/16/2020, 09:53:35"
+   },
+   "lists": {
+      "inspection": [
+         {
+            "symbology": "undefined",
+            "date": "9/30/2022, 15:31:58",
+            "inspect_by": "inspect_by_3",
+            "observations": "observations_1",
+            "crown_girth": 4.96,
+            "height": "height_7",
+            "height_range": "height_range_1",
+            "foliage_color": "yellow",
+            "canopy_colour": "yellow",
+            "status": "for_removal",
+            "condition": "dying",
+            "DBH_range": "DBH_range_6",
+            "DBH": "DBH_6",
+            "crown_foilage": "None_or_Seasonal",
+            "wound_wood_dev": "stagnating",
+            "twig_dieback": "slow",
+            "defect_lean": "none",
+            "pest_disease": "pest_disease_5",
+            "inspection": {
+               "ID": 6,
+               "type": "undefined",
+               "created_dt": "2/24/2020, 21:09:40",
+               "status": "in_growth",
+               "work_order": {
+                  "name": "name_2",
+                  "type": "type_4",
+                  "start_dt": "7/15/2022, 20:01:33",
+                  "end_dt": "1/18/2020, 19:07:04",
+                  "status": "completed"
+               }
+            }
+         },
+         {
+            "symbology": "undefined",
+            "date": "9/8/2019, 02:21:05",
+            "inspect_by": "inspect_by_5",
+            "observations": "observations_6",
+            "crown_girth": 6.35,
+            "height": "height_4",
+            "height_range": "height_range_3",
+            "foliage_color": "brown",
+            "canopy_colour": "brown",
+            "status": "for_removal",
+            "condition": "very_poor",
+            "DBH_range": "DBH_range_0",
+            "DBH": "DBH_9",
+            "crown_foilage": "None_or_Dead",
+            "wound_wood_dev": "reparing",
+            "twig_dieback": "medium",
+            "defect_lean": "soil_lifting",
+            "pest_disease": "pest_disease_4",
+            "inspection": {
+               "ID": 9,
+               "type": "undefined",
+               "created_dt": "5/27/2022, 07:22:04",
+               "status": "developed",
+               "work_order": {
+                  "name": "name_1",
+                  "type": "type_1",
+                  "start_dt": "9/2/2020, 17:44:54",
+                  "end_dt": "8/19/2021, 18:16:53",
+                  "status": "created"
+               }
+            }
+         },
+         {
+            "symbology": "undefined",
+            "date": "10/10/2022, 17:19:03",
+            "inspect_by": "inspect_by_2",
+            "observations": "observations_2",
+            "crown_girth": 3.44,
+            "height": "height_4",
+            "height_range": "height_range_7",
+            "foliage_color": "green",
+            "canopy_colour": "green",
+            "status": "in_growth",
+            "condition": "fair",
+            "DBH_range": "DBH_range_2",
+            "DBH": "DBH_0",
+            "crown_foilage": "Sparse",
+            "wound_wood_dev": "reparing",
+            "twig_dieback": "slow",
+            "defect_lean": "soil_lifting",
+            "pest_disease": "pest_disease_7",
+            "inspection": {
+               "ID": 2,
+               "type": "undefined",
+               "created_dt": "9/27/2021, 16:02:21",
+               "status": "in_growth",
+               "work_order": {
+                  "name": "name_4",
+                  "type": "type_1",
+                  "start_dt": "6/23/2021, 24:01:21",
+                  "end_dt": "1/16/2018, 10:21:55",
+                  "status": "assigned"
+               }
+            }
+         },
+         {
+            "symbology": "undefined",
+            "date": "1/6/2015, 08:55:32",
+            "inspect_by": "inspect_by_2",
+            "observations": "observations_2",
+            "crown_girth": 5.05,
+            "height": "height_5",
+            "height_range": "height_range_8",
+            "foliage_color": "green",
+            "canopy_colour": "green",
+            "status": "developed",
+            "condition": "fair",
+            "DBH_range": "DBH_range_8",
+            "DBH": "DBH_4",
+            "crown_foilage": "Sparse",
+            "wound_wood_dev": "reparing",
+            "twig_dieback": "none",
+            "defect_lean": "soil_lifting",
+            "pest_disease": "pest_disease_2",
+            "inspection": {
+               "ID": 3,
+               "type": "undefined",
+               "created_dt": "4/24/2017, 14:58:28",
+               "status": "for_removal",
+               "work_order": {
+                  "name": "name_6",
+                  "type": "type_8",
+                  "start_dt": "8/12/2017, 08:18:30",
+                  "end_dt": "10/5/2020, 06:50:51",
+                  "status": "in_progress"
+               }
+            }
+         },
+         {
+            "symbology": "undefined",
+            "date": "8/19/2022, 17:05:54",
+            "inspect_by": "inspect_by_5",
+            "observations": "observations_5",
+            "crown_girth": 2.49,
+            "height": "height_8",
+            "height_range": "height_range_1",
+            "foliage_color": "yellow",
+            "canopy_colour": "no_leaves",
+            "status": "for_removal",
+            "condition": "excellent",
+            "DBH_range": "DBH_range_9",
+            "DBH": "DBH_8",
+            "crown_foilage": "None_or_Seasonal",
+            "wound_wood_dev": "reparing",
+            "twig_dieback": "slow",
+            "defect_lean": "soil_cracks",
+            "pest_disease": "pest_disease_6",
+            "inspection": {
+               "ID": 0,
+               "type": "undefined",
+               "created_dt": "4/1/2020, 19:31:35",
+               "status": "for_removal",
+               "work_order": {
+                  "name": "name_6",
+                  "type": "type_9",
+                  "start_dt": "6/5/2020, 01:17:09",
+                  "end_dt": "10/27/2021, 03:47:27",
+                  "status": "received"
+               }
+            }
+         }
+      ],
+      "environment": [
+         {
+            "ID": 4,
+            "watershed": "watershed_3",
+            "solar": "solar_0",
+            "wind": "wind_8",
+            "underground": "underground_6",
+            "env_CO2": "env_CO2_9"
+         },
+         {
+            "ID": 4,
+            "watershed": "watershed_2",
+            "solar": "solar_2",
+            "wind": "wind_0",
+            "underground": "underground_7",
+            "env_CO2": "env_CO2_3"
+         },
+         {
+            "ID": 3,
+            "watershed": "watershed_0",
+            "solar": "solar_2",
+            "wind": "wind_6",
+            "underground": "underground_8",
+            "env_CO2": "env_CO2_2"
+         },
+         {
+            "ID": 4,
+            "watershed": "watershed_7",
+            "solar": "solar_4",
+            "wind": "wind_8",
+            "underground": "underground_5",
+            "env_CO2": "env_CO2_9"
+         },
+         {
+            "ID": 4,
+            "watershed": "watershed_5",
+            "solar": "solar_7",
+            "wind": "wind_1",
+            "underground": "underground_6",
+            "env_CO2": "env_CO2_5"
+         }
+      ]
+   }
+}
+}
